@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import FaqAccordion from "@/components/FaqAccordion";
 
@@ -63,8 +64,12 @@ export default function CommercialInspectionPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* HERO */}
-      <section className="bg-[#0B1220] text-white py-14 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
+      <section className="relative bg-[#0B1220] text-white py-14 md:py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/larry-inspecting-4.jpg" alt="" fill className="object-cover object-center opacity-50" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/90 via-[#0B1220]/65 to-[#0B1220]/42" />
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
           <div>
             <p className="text-[#3B82F6] text-xs font-semibold uppercase tracking-widest mb-3">Commercial Inspection · Anchorage, AK</p>
             <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-5">

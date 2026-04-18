@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -11,12 +12,20 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-[#0F172A] text-white py-12">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">Contact &amp; Book an Inspection</h1>
+      <section className="relative bg-[#0B1220] text-white py-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/larry-inspecting-8.jpg" alt="" fill className="object-cover object-center opacity-45" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-[#0B1220]/72" />
+        </div>
+        <div className="relative max-w-3xl mx-auto px-4 text-center">
+          <h1 className="font-display text-3xl md:text-4xl font-bold mb-3">Contact &amp; Book an Inspection</h1>
           <p className="text-slate-300 text-lg">
             We respond within 1 business hour. For immediate scheduling, call directly.
           </p>
+          <div className="flex justify-center gap-2 mt-5">
+            <span className="text-yellow-400 text-sm">★★★★★</span>
+            <span className="text-slate-300 text-sm">5.0 · 47 Google Reviews · ASHI Certified</span>
+          </div>
         </div>
       </section>
 

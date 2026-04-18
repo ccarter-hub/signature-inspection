@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -60,10 +61,14 @@ export default function RadonTestingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <section className="bg-[#0F172A] text-white py-14 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
+      <section className="relative bg-[#0B1220] text-white py-14 md:py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/larry-inspecting-5.jpg" alt="" fill className="object-cover object-center opacity-50" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/90 via-[#0B1220]/65 to-[#0B1220]/42" />
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-[#2563EB] text-xs font-semibold uppercase tracking-widest mb-3">Radon Testing · Anchorage, AK</p>
+            <p className="text-[#3B82F6] text-xs font-semibold uppercase tracking-widest mb-3">Radon Testing · Anchorage, AK</p>
             <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-5">
               Radon Testing in Anchorage, AK
             </h1>
@@ -79,8 +84,8 @@ export default function RadonTestingPage() {
               Call (907) 223-3725
             </a>
           </div>
-          <div className="bg-white rounded-2xl p-6 shadow-xl">
-            <h2 className="text-[#0F172A] font-bold text-lg mb-1">Schedule Radon Testing</h2>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+            <h2 className="text-[#0B1220] font-bold text-lg mb-1">Schedule Radon Testing</h2>
             <p className="text-[#64748B] text-sm mb-4">We respond within 1 business hour.</p>
             <ContactForm />
           </div>

@@ -24,11 +24,15 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
 
       {/* HERO */}
-      <section className="bg-[#0F172A] text-white py-14 md:py-20">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <section className="relative bg-[#0B1220] text-white py-14 md:py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/larry-inspecting-1.jpg" alt="" fill className="object-cover object-center opacity-30" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-[#0B1220]/72" />
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-[#2563EB] text-xs font-semibold uppercase tracking-widest mb-3">About</p>
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
+            <p className="text-[#3B82F6] text-xs font-semibold uppercase tracking-widest mb-3">About</p>
+            <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-4">
               Larry McBain
             </h1>
             <p className="text-slate-300 text-lg mb-3">President & Lead Inspector</p>

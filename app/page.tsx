@@ -78,15 +78,15 @@ export default function HomePage() {
       <section className="relative bg-[#0B1220] text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/larry-inspecting-9.jpg"
+            src="/images/larry-inspecting-3.jpg"
             alt=""
             fill
-            className="object-cover object-center opacity-40"
+            className="object-cover object-top opacity-50"
             sizes="100vw"
             priority
           />
-          {/* Directional gradient: strong left for text legibility, fades right so photo shows behind form */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/92 via-[#0B1220]/72 to-[#0B1220]/45" />
+          {/* Gradient flows right→left: right dark (covers nothing, form has own bg), left lighter so Larry shows through */}
+          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/90 via-[#0B1220]/65 to-[#0B1220]/42" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 py-12 md:py-24 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
