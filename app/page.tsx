@@ -17,10 +17,18 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Do I need to attend the inspection?",
+      name: "What does a home inspection include in Anchorage, AK?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Not required, but helpful if you want to ask questions directly. We encourage buyers to attend so they can understand the property's condition firsthand.",
+        text: "A home inspection in Anchorage covers 200+ items across all major systems: roof, attic, insulation, foundation, framing, electrical, plumbing, HVAC, windows, doors, and exterior. Alaska-specific checks include ice dam potential, permafrost settlement indicators, freeze/thaw damage, and seismic resilience — hazards that inspectors from the Lower 48 often miss.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does a home inspection cost in Anchorage, Alaska?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Home inspections in Anchorage typically cost $400–$600, depending on property size and age. Radon testing is available as an add-on. Call (907) 223-3725 for a same-day quote.",
       },
     },
     {
@@ -28,31 +36,31 @@ const faqSchema = {
       name: "How long does a home inspection take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most inspections take 2–4 hours depending on the property size and age. You receive a detailed written report the same day.",
+        text: "Most home inspections take 2–4 hours depending on the size and age of the property. You receive a complete written report with photos the same day.",
       },
     },
     {
       "@type": "Question",
-      name: "Can a home fail inspection?",
+      name: "Can a home fail a home inspection?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No — inspections provide information, not pass/fail results. The report documents the current condition of the property so buyers can make informed decisions.",
+        text: "No — a home inspection does not pass or fail a property. It documents the current condition so buyers can make informed decisions, negotiate repairs, or walk away with confidence.",
       },
     },
     {
       "@type": "Question",
-      name: "How much does a home inspection cost in Anchorage?",
+      name: "Is radon testing necessary in Anchorage, Alaska?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Home inspections in Anchorage typically range from $400–$600 depending on property size and type. Call (907) 223-3725 for a same-day quote.",
+        text: "Yes. Alaska has elevated radon concentrations in many areas, including Anchorage, Eagle River, and the Mat-Su Valley. The EPA recommends mitigation at 4 pCi/L or above. Testing is the only way to know your home's level. We offer 48-hour EPA-approved radon testing that can be bundled with any inspection.",
       },
     },
     {
       "@type": "Question",
-      name: "Is radon a concern in Anchorage, Alaska?",
+      name: "Why choose a local Anchorage home inspector?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Alaska has elevated radon levels in many areas. Radon is invisible and odorless — testing is the only way to know your level. We offer professional 48-hour radon testing.",
+        text: "A local Anchorage inspector understands Alaska-specific risks that out-of-state inspectors routinely miss: ice damming, permafrost movement, freeze/thaw damage, and seismic vulnerability. Signature Inspection Service is led by Larry McBain, who has 38+ years of Alaska construction experience and is ASHI Certified.",
       },
     },
   ],
@@ -67,70 +75,72 @@ export default function HomePage() {
       />
 
       {/* ─── HERO ─── */}
-      <section className="relative bg-[#0F172A] text-white overflow-hidden">
+      <section className="relative bg-[#0B1220] text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/larry-inspecting-9.jpg"
             alt=""
             fill
-            className="object-cover object-center opacity-25"
+            className="object-cover object-center opacity-40"
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/85 to-[#0F172A]/60" />
+          {/* Directional gradient: strong left for text legibility, fades right so photo shows behind form */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B1220]/92 via-[#0B1220]/72 to-[#0B1220]/45" />
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-6xl mx-auto px-4 py-12 md:py-24 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div>
             {/* Social proof eyebrow */}
-            <div className="flex items-center gap-3 mb-5">
-              <div className="flex items-center gap-1.5 bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">
+            <div className="flex flex-wrap items-center gap-2 mb-5">
+              <div className="flex items-center gap-1.5 bg-white/[0.08] border border-white/[0.15] px-3 py-1.5 rounded-full">
                 <span className="text-yellow-400 text-xs">★★★★★</span>
                 <span className="text-white text-xs font-semibold">5.0</span>
-                <span className="text-slate-400 text-xs">· 47 Google Reviews</span>
+                <span className="text-slate-300 text-xs">· 47 Google Reviews</span>
               </div>
-              <div className="bg-white/10 border border-white/20 px-3 py-1.5 rounded-full">
-                <span className="text-slate-300 text-xs font-semibold">ASHI Certified</span>
+              <div className="bg-white/[0.08] border border-white/[0.15] px-3 py-1.5 rounded-full">
+                <span className="text-slate-200 text-xs font-semibold tracking-wide">ASHI Certified</span>
               </div>
             </div>
 
-            <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-5">
-              Home Inspection in Anchorage, AK You Can Trust — Before You Buy
+            <h1 className="font-display text-4xl md:text-5xl font-bold leading-[1.1] mb-5">
+              Anchorage Home Inspector You Can Trust — Before You Buy
             </h1>
-            <p className="text-slate-300 text-lg leading-relaxed mb-8">
-              Get a clear, professional inspection so you know exactly what you&apos;re buying
-              and avoid costly surprises after closing.
+            <p className="text-slate-300 text-lg leading-relaxed mb-8 max-w-lg">
+              Know exactly what you&apos;re buying. Larry McBain delivers a clear, thorough inspection
+              and a same-day report — so you can close with confidence or negotiate with leverage.
             </p>
-            <div className="flex flex-wrap gap-3 mb-10">
-              <Link href="/contact" className="bg-[#2563EB] hover:bg-[#1d4ed8] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-150 text-base">
+            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+              <Link href="/contact" className="bg-[#3B82F6] hover:bg-[#2563EB] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-150 text-base text-center">
                 Schedule an Inspection
               </Link>
-              <a href="tel:+19072233725" className="border border-white/30 text-white hover:bg-white/10 font-semibold px-7 py-3.5 rounded-lg transition-all duration-150 text-base">
+              <a href="tel:+19072233725" className="border border-white/25 text-white hover:bg-white/[0.08] font-semibold px-7 py-3.5 rounded-lg transition-all duration-150 text-base text-center">
                 Call (907) 223-3725
               </a>
             </div>
 
             {/* Trust strip */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {[
-                "38+ Years Construction Experience",
+                "38+ Years Alaska Construction",
                 "Same-Day Written Reports",
-                "Serving Anchorage & Southcentral AK",
+                "ASHI Certified · Licensed & Insured",
               ].map((t) => (
                 <div key={t} className="flex items-center gap-2 text-sm text-slate-300">
-                  <span className="text-[#2563EB] shrink-0">✓</span>
+                  <span className="text-[#3B82F6] shrink-0">✓</span>
                   {t}
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl">
-            <div className="flex items-center gap-1 mb-1">
+          {/* Form card — premium soft surface, not stark white */}
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+            <div className="flex items-center gap-1.5 mb-1">
               <span className="text-yellow-400 text-sm">★★★★★</span>
-              <span className="text-[#64748B] text-xs ml-1">5.0 · 47 reviews</span>
+              <span className="text-[#64748B] text-xs">5.0 · 47 reviews</span>
             </div>
-            <h2 className="text-[#0F172A] font-bold text-xl mb-1">Schedule Your Inspection</h2>
+            <h2 className="text-[#0B1220] font-bold text-xl mb-1">Schedule Your Inspection</h2>
             <p className="text-[#64748B] text-sm mb-5">We respond within 1 business hour.</p>
             <ContactForm />
           </div>
@@ -393,7 +403,7 @@ export default function HomePage() {
                 body: "Every inspection follows ASHI standards of practice — the most rigorous in the industry — backed by 38+ years of Alaska construction experience.",
               },
             ].map((p) => (
-              <div key={p.title} className="bg-white/8 border border-white/10 rounded-xl p-6">
+              <div key={p.title} className="bg-white/[0.06] border border-white/[0.10] rounded-xl p-6">
                 <div className="text-2xl mb-3">{p.icon}</div>
                 <h3 className="font-bold text-white mb-2">{p.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{p.body}</p>

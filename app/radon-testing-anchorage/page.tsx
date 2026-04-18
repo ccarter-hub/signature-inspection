@@ -44,17 +44,27 @@ const faqSchema = {
   ],
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://signatureinspectionservice.com" },
+    { "@type": "ListItem", position: 2, name: "Radon Testing Anchorage", item: "https://signatureinspectionservice.com/radon-testing-anchorage" },
+  ],
+};
+
 export default function RadonTestingPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <section className="bg-[#0F172A] text-white py-14 md:py-20">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
           <div>
             <p className="text-[#2563EB] text-xs font-semibold uppercase tracking-widest mb-3">Radon Testing · Anchorage, AK</p>
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-5">
+            <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-5">
               Radon Testing in Anchorage, AK
             </h1>
             <p className="text-slate-300 leading-relaxed mb-4">

@@ -46,30 +46,45 @@ const faqSchema = {
   ],
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://signatureinspectionservice.com" },
+    { "@type": "ListItem", position: 2, name: "Home Inspection Anchorage", item: "https://signatureinspectionservice.com/home-inspection-anchorage" },
+  ],
+};
+
 export default function HomeInspectionPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* HERO */}
-      <section className="bg-[#0F172A] text-white py-14 md:py-20">
+      <section className="bg-[#0B1220] text-white py-14 md:py-20">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <p className="text-[#2563EB] text-xs font-semibold uppercase tracking-widest mb-3">Home Inspection · Anchorage, AK</p>
+            <p className="text-[#3B82F6] text-xs font-semibold uppercase tracking-widest mb-3">Home Inspection · Anchorage, AK</p>
             <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-5">
               Home Inspection in Anchorage, AK
             </h1>
-            <p className="text-slate-300 leading-relaxed mb-6">
-              Protect your investment with a thorough inspection from Larry McBain — ASHI Certified,
-              38+ years Alaska construction experience, same-day written reports.
+            <p className="text-slate-300 leading-relaxed mb-4">
+              Know exactly what you&apos;re buying. Larry McBain delivers a thorough 200+ point inspection —
+              ASHI Certified, 38+ years Alaska construction experience, same-day written reports.
             </p>
-            <a href="tel:+19072233725" className="bg-[#2563EB] hover:bg-[#1d4ed8] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-6 py-3 rounded-lg transition-all duration-150 inline-block">
-              Call (907) 223-3725
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a href="tel:+19072233725" className="bg-[#3B82F6] hover:bg-[#2563EB] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-6 py-3 rounded-lg transition-all duration-150 inline-block text-center">
+                Call (907) 223-3725
+              </a>
+              <Link href="/contact" className="border border-white/25 text-white hover:bg-white/[0.08] font-semibold px-6 py-3 rounded-lg transition-all duration-150 inline-block text-center">
+                Book Online
+              </Link>
+            </div>
           </div>
-          <div className="bg-white rounded-2xl p-6 shadow-xl">
-            <h2 className="text-[#0F172A] font-bold text-lg mb-1">Schedule Your Inspection</h2>
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
+            <h2 className="text-[#0B1220] font-bold text-lg mb-1">Schedule Your Inspection</h2>
             <p className="text-[#64748B] text-sm mb-4">We respond within 1 business hour.</p>
             <ContactForm />
           </div>
@@ -95,7 +110,7 @@ export default function HomeInspectionPage() {
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-2xl font-bold text-[#0F172A] mb-2">
+            <h2 className="font-display text-2xl font-bold text-[#0B1220] mb-2">
               What&apos;s Included in an Anchorage Home Inspection
             </h2>
             <p className="text-[#64748B] mb-6 text-sm">
