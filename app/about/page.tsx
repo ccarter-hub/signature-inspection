@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Larry McBain | ASHI Certified Home Inspector Anchorage, AK",
@@ -22,19 +23,39 @@ export default function AboutPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
 
+      {/* HERO */}
       <section className="bg-[#0F172A] text-white py-14 md:py-20">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-[#2563EB] text-xs font-semibold uppercase tracking-widest mb-3">About</p>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Larry McBain, President</h1>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-            ASHI Certified Home Inspector · 38+ Years Alaska Construction ·
-            Founder of Signature Inspection Service Inc.
-          </p>
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="text-[#2563EB] text-xs font-semibold uppercase tracking-widest mb-3">About</p>
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
+              Larry McBain
+            </h1>
+            <p className="text-slate-300 text-lg mb-3">President & Lead Inspector</p>
+            <p className="text-slate-400 leading-relaxed mb-6">
+              ASHI Certified Home Inspector · 38+ Years Alaska Construction ·
+              20+ Years Real Estate Experience
+            </p>
+            <a href="tel:+19072233725" className="bg-[#2563EB] hover:bg-[#1d4ed8] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-6 py-3 rounded-lg transition-all duration-150 inline-block">
+              Call (907) 223-3725
+            </a>
+          </div>
+          <div className="relative h-[420px] rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/larry-inspecting-3.jpg"
+              alt="Larry McBain ASHI Certified Home Inspector Anchorage Alaska"
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
+          </div>
         </div>
       </section>
 
+      {/* BIO */}
       <section className="bg-white py-16">
-        <div className="max-w-5xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-10">
             <div className="md:col-span-2 space-y-5 text-[#64748B] leading-relaxed">
               <p>
@@ -85,10 +106,7 @@ export default function AboutPage() {
                 <p className="text-slate-400 text-sm mb-3">
                   Questions about your property? Larry takes calls personally.
                 </p>
-                <a
-                  href="tel:+19072233725"
-                  className="block text-center bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-bold py-3 rounded-lg transition-colors"
-                >
+                <a href="tel:+19072233725" className="block text-center bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-bold py-3 rounded-lg transition-colors">
                   (907) 223-3725
                 </a>
               </div>
@@ -97,7 +115,28 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ON THE JOB PHOTOS */}
       <section className="bg-[#F9FAFB] py-14">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-2xl font-bold text-[#0F172A] mb-2 text-center">Larry On the Job</h2>
+          <p className="text-[#64748B] text-sm text-center mb-8">Every inspection gets the same thorough treatment.</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { src: "/images/larry-inspecting-2.jpg", alt: "Inspecting exterior electrical panel" },
+              { src: "/images/larry-inspecting-4.jpg", alt: "HVAC furnace inspection with tablet" },
+              { src: "/images/larry-inspecting-10.jpg", alt: "Roof inspection from ladder" },
+              { src: "/images/larry-inspecting-11.jpg", alt: "Attic inspection access" },
+            ].map((img) => (
+              <div key={img.src} className="relative h-44 rounded-xl overflow-hidden shadow-sm">
+                <Image src={img.src} alt={img.alt} fill className="object-cover hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 50vw, 25vw" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* VALUES */}
+      <section className="bg-white py-14">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-[#0F172A] mb-8 text-center">Our Commitment to Every Client</h2>
           <div className="grid md:grid-cols-3 gap-5">
@@ -115,6 +154,24 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* TRUCK PHOTO FULL BLEED */}
+      <section className="relative h-64 md:h-80 overflow-hidden">
+        <Image
+          src="/images/larry-inspecting-1.jpg"
+          alt="Signature Inspection Service truck Anchorage AK"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[#0F172A]/60 flex items-center justify-center">
+          <div className="text-center text-white px-4">
+            <p className="text-xl md:text-2xl font-bold mb-2">Serving Anchorage Since 2005</p>
+            <p className="text-slate-300 text-sm">Licensed · Insured · ASHI Certified</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="bg-[#2563EB] py-14 text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-white mb-3">Schedule with Larry Today</h2>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -25,10 +26,7 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "What does a home inspection cover in Anchorage, AK?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A home inspection in Anchorage covers the roof, attic, insulation, foundation, framing, electrical, plumbing, HVAC, windows, and doors. Alaska-specific checks include ice dams, permafrost settlement, and freeze/thaw damage.",
-      },
+      acceptedAnswer: { "@type": "Answer", text: "A home inspection in Anchorage covers the roof, attic, insulation, foundation, framing, electrical, plumbing, HVAC, windows, and doors. Alaska-specific checks include ice dams, permafrost settlement, and freeze/thaw damage." },
     },
     {
       "@type": "Question",
@@ -54,6 +52,7 @@ export default function HomeInspectionPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
+      {/* HERO */}
       <section className="bg-[#0F172A] text-white py-14 md:py-20">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
           <div>
@@ -77,37 +76,69 @@ export default function HomeInspectionPage() {
         </div>
       </section>
 
+      {/* ACTION PHOTO STRIP */}
+      <section className="bg-[#0F172A]">
+        <div className="max-w-6xl mx-auto px-4 pb-10 grid grid-cols-3 gap-3">
+          {[
+            { src: "/images/larry-inspecting-2.jpg", alt: "Inspecting electrical panel outside" },
+            { src: "/images/larry-inspecting-10.jpg", alt: "Roof inspection Anchorage home" },
+            { src: "/images/larry-inspecting-5.jpg", alt: "Photographing HVAC system overhead" },
+          ].map((img) => (
+            <div key={img.src} className="relative h-36 md:h-48 rounded-xl overflow-hidden">
+              <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 33vw, 25vw" />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHAT WE INSPECT */}
       <section className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-[#0F172A] mb-2">
-            What&apos;s Included in a Anchorage Home Inspection
-          </h2>
-          <p className="text-[#64748B] mb-8 text-sm">
-            We follow ASHI standards of practice — plus Alaska-specific checks that inspectors from the Lower 48 routinely miss.
-          </p>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {[
-              "Roof, gutters & downspouts",
-              "Attic, insulation & ventilation",
-              "Foundation & structural components",
-              "Exterior siding, trim & decks",
-              "Electrical system & panel",
-              "Plumbing & water heater",
-              "HVAC system",
-              "Windows, doors & weatherstripping",
-              "Crawl space (if accessible)",
-              "Interior walls, ceilings & floors",
-              "Ice dam potential & drainage",
-              "Permafrost & frost heave indicators",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2 text-sm text-[#0F172A] py-1">
-                <span className="text-[#2563EB] font-bold">✓</span> {item}
-              </div>
-            ))}
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <h2 className="text-2xl font-bold text-[#0F172A] mb-2">
+              What&apos;s Included in an Anchorage Home Inspection
+            </h2>
+            <p className="text-[#64748B] mb-6 text-sm">
+              We follow ASHI standards of practice — plus Alaska-specific checks that inspectors from the Lower 48 routinely miss.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {[
+                "Roof, gutters & downspouts",
+                "Attic, insulation & ventilation",
+                "Foundation & structural components",
+                "Exterior siding, trim & decks",
+                "Electrical system & panel",
+                "Plumbing & water heater",
+                "HVAC system",
+                "Windows, doors & weatherstripping",
+                "Crawl space (if accessible)",
+                "Interior walls, ceilings & floors",
+                "Ice dam potential & drainage",
+                "Permafrost & frost heave indicators",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-sm text-[#0F172A] py-1">
+                  <span className="text-[#2563EB] font-bold shrink-0">✓</span> {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Stacked inspection photos */}
+          <div className="grid grid-cols-2 gap-3">
+            <div className="relative h-52 rounded-xl overflow-hidden shadow-sm">
+              <Image src="/images/larry-inspecting-7.jpg" alt="Electrical panel inspection" fill className="object-cover" sizes="25vw" />
+            </div>
+            <div className="relative h-52 rounded-xl overflow-hidden shadow-sm">
+              <Image src="/images/larry-inspecting-4.jpg" alt="Furnace HVAC inspection" fill className="object-cover" sizes="25vw" />
+            </div>
+            <div className="relative h-52 rounded-xl overflow-hidden shadow-sm col-span-2">
+              <Image src="/images/hero.jpg" alt="Plumbing inspection bathroom" fill className="object-cover" sizes="50vw" />
+            </div>
           </div>
         </div>
       </section>
 
+      {/* ALASKA-SPECIFIC + REPORT */}
       <section className="bg-[#F9FAFB] py-16">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10">
           <div>
@@ -116,7 +147,7 @@ export default function HomeInspectionPage() {
               Alaska&apos;s climate creates hazards that inspectors from the Lower 48 often miss.
               Larry&apos;s 38+ years of Alaska construction experience means he knows exactly where to look.
             </p>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {[
                 { title: "Ice Damming", body: "We assess attic insulation, ventilation, and eave conditions that lead to damming and roof damage." },
                 { title: "Permafrost Settlement", body: "Foundation shifts from permafrost movement. We look for signs of differential settlement." },
@@ -132,9 +163,9 @@ export default function HomeInspectionPage() {
           </div>
           <div>
             <h2 className="text-2xl font-bold text-[#0F172A] mb-4">Your Same-Day Report</h2>
-            <p className="text-[#64748B] text-sm leading-relaxed mb-5">
-              You receive a detailed written report the same day — typically within hours of inspection. Every report includes:
-            </p>
+            <div className="relative h-48 rounded-xl overflow-hidden mb-5 shadow-sm">
+              <Image src="/images/larry-inspecting-12.jpg" alt="Larry writing inspection report on laptop" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+            </div>
             <ul className="space-y-3">
               {[
                 "Color photographs of every deficiency",
@@ -149,30 +180,18 @@ export default function HomeInspectionPage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 card p-5 bg-[#EFF6FF] border-[#BFDBFE]">
-              <p className="text-sm text-[#1e40af] font-medium">
-                Ready to schedule? We respond within 1 business hour.
-              </p>
-              <div className="mt-3 flex gap-3 flex-wrap">
-                <a href="tel:+19072233725" className="bg-[#2563EB] text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-[#1d4ed8] transition-colors">
-                  Call Now
-                </a>
-                <Link href="/contact" className="border border-[#2563EB] text-[#2563EB] text-sm font-semibold px-4 py-2 rounded-lg hover:bg-[#2563EB] hover:text-white transition-colors">
-                  Book Online
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      {/* FAQ */}
+      <section className="bg-white py-14">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-[#0F172A] mb-8 text-center">Home Inspection FAQ — Anchorage, AK</h2>
           <div className="space-y-4">
             {faqSchema.mainEntity.map((item) => (
               <div key={item.name} className="card p-5">
-                <h3 className="font-bold text-[#0F172A] mb-2 text-sm">{item.name}</h3>
+                <h3 className="font-bold text-[#0F172A] text-sm mb-2">{item.name}</h3>
                 <p className="text-[#64748B] text-sm leading-relaxed">{item.acceptedAnswer.text}</p>
               </div>
             ))}
@@ -180,6 +199,7 @@ export default function HomeInspectionPage() {
         </div>
       </section>
 
+      {/* CTA */}
       <section className="bg-[#2563EB] py-14 text-center">
         <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-white mb-3">Schedule Your Anchorage Home Inspection</h2>
