@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #1a3a5c;
+  --gold: #d97706;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-slate-800;
+}
+
+/* Mobile sticky CTA clearance */
+main {
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  main {
+    padding-bottom: 0;
+  }
+}
