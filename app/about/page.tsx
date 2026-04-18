@@ -26,8 +26,8 @@ export default function AboutPage() {
       {/* HERO */}
       <section className="relative bg-[#0B1220] text-white py-14 md:py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/larry-inspecting-1.jpg" alt="" fill className="object-cover object-center opacity-30" sizes="100vw" priority />
-          <div className="absolute inset-0 bg-[#0B1220]/72" />
+          <Image src="/images/larry-inspecting-1.jpg" alt="" fill className="object-cover object-center opacity-50" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-[#0B1220]/52" />
         </div>
         <div className="relative max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div>

@@ -78,18 +78,17 @@ export default function HomePage() {
       <section className="relative bg-[#0B1220] text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/larry-inspecting-3.jpg"
+            src="/images/larry-inspecting-2.jpg"
             alt=""
             fill
-            className="object-cover object-top opacity-50"
+            className="object-cover object-center opacity-65"
             sizes="100vw"
             priority
           />
-          {/* Gradient flows right→left: right dark (covers nothing, form has own bg), left lighter so Larry shows through */}
-          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/90 via-[#0B1220]/65 to-[#0B1220]/42" />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/80 via-[#0B1220]/50 to-[#0B1220]/25" />
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-4 py-12 md:py-24 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+        <div className="relative max-w-6xl mx-auto px-4 py-12 md:py-20 grid md:grid-cols-[1fr_330px] gap-8 md:gap-10 items-center">
           <div>
             {/* Social proof eyebrow */}
             <div className="flex flex-wrap items-center gap-2 mb-5">
@@ -135,7 +134,7 @@ export default function HomePage() {
           </div>
 
           {/* Form card — premium soft surface, not stark white */}
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 md:p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
             <div className="flex items-center gap-1.5 mb-1">
               <span className="text-yellow-400 text-sm">★★★★★</span>
               <span className="text-[#64748B] text-xs">5.0 · 47 reviews</span>

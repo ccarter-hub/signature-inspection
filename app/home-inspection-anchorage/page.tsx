@@ -65,8 +65,8 @@ export default function HomeInspectionPage() {
       {/* HERO */}
       <section className="relative bg-[#0B1220] text-white py-14 md:py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/larry-inspecting-10.jpg" alt="" fill className="object-cover object-center opacity-50" sizes="100vw" priority />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/90 via-[#0B1220]/65 to-[#0B1220]/42" />
+          <Image src="/images/larry-inspecting-10.jpg" alt="" fill className="object-cover object-center opacity-65" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/78 via-[#0B1220]/48 to-[#0B1220]/22" />
         </div>
         <div className="relative max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
           <div>

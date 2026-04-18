@@ -14,8 +14,8 @@ export default function ContactPage() {
     <>
       <section className="relative bg-[#0B1220] text-white py-16 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src="/images/larry-inspecting-8.jpg" alt="" fill className="object-cover object-center opacity-45" sizes="100vw" priority />
-          <div className="absolute inset-0 bg-[#0B1220]/72" />
+          <Image src="/images/larry-inspecting-8.jpg" alt="" fill className="object-cover object-center opacity-60" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-[#0B1220]/50" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4 text-center">
           <h1 className="font-display text-3xl md:text-4xl font-bold mb-3">Contact &amp; Book an Inspection</h1>
