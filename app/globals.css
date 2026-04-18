@@ -2,17 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --navy: #1a3a5c;
-  --gold: #d97706;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply text-slate-800;
+  background-color: #F9FAFB;
+  color: #0F172A;
 }
 
 /* Mobile sticky CTA clearance */
@@ -22,5 +18,21 @@ main {
 @media (min-width: 768px) {
   main {
     padding-bottom: 0;
+  }
+}
+
+@layer utilities {
+  .btn-primary {
+    @apply bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg
+           hover:bg-[#1d4ed8] hover:-translate-y-0.5 hover:shadow-lg
+           transition-all duration-150 inline-block;
+  }
+  .btn-outline {
+    @apply border border-[#0F172A] text-[#0F172A] font-semibold px-6 py-3 rounded-lg
+           hover:-translate-y-0.5 hover:shadow-md hover:bg-[#0F172A] hover:text-white
+           transition-all duration-150 inline-block;
+  }
+  .card {
+    @apply bg-white rounded-xl border border-[#E5E7EB] shadow-sm;
   }
 }

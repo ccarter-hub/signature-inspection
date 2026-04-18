@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Home Inspector in Anchorage, AK | Signature Inspection Service Inc.",
   description:
-    "ASHI Certified home inspector in Anchorage, AK. Residential & commercial inspections, radon testing. 38+ years construction experience. Same-day reports. Call (907) 223-3725.",
+    "ASHI Certified home inspector in Anchorage, AK. Get a clear, professional inspection before you buy. 38+ years construction experience. Same-day reports. Call (907) 223-3725.",
   alternates: { canonical: "https://signatureinspectionservice.com" },
 };
 
@@ -15,50 +15,42 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How much does a home inspection cost in Anchorage, AK?",
+      name: "Do I need to attend the inspection?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Home inspection prices in Anchorage typically range from $400–$600 depending on square footage and property type. Signature Inspection Service provides competitive pricing — call (907) 223-3725 for a same-day quote.",
+        text: "Not required, but helpful if you want to ask questions directly. We encourage buyers to attend so they can understand the property's condition firsthand.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does a home inspection take in Anchorage?",
+      name: "How long does a home inspection take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Most residential home inspections in Anchorage take 2.5–4 hours depending on the home's size and age. You receive a detailed written report the same day.",
+        text: "Most inspections take 2–4 hours depending on the property size and age. You receive a detailed written report the same day.",
       },
     },
     {
       "@type": "Question",
-      name: "What does a home inspection include in Alaska?",
+      name: "Can a home fail inspection?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "A standard Alaska home inspection covers the roof, attic, insulation, foundation, structural components, electrical system, plumbing, HVAC, windows, doors, and crawl spaces. We also check for issues specific to Alaska's climate: ice damming, permafrost settlement, and freeze/thaw damage.",
+        text: "No — inspections provide information, not pass/fail results. The report documents the current condition of the property so buyers can make informed decisions.",
       },
     },
     {
       "@type": "Question",
-      name: "Is radon a concern in Anchorage, AK?",
+      name: "How much does a home inspection cost in Anchorage?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Alaska has elevated radon levels in many areas. The EPA recommends testing every home — especially before purchase. Signature Inspection Service provides professional radon testing in Anchorage and the Mat-Su Valley.",
+        text: "Home inspections in Anchorage typically range from $400–$600 depending on property size and type. Call (907) 223-3725 for a same-day quote.",
       },
     },
     {
       "@type": "Question",
-      name: "Do I need to be present for my home inspection?",
+      name: "Is radon a concern in Anchorage, Alaska?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We strongly encourage buyers to attend. Walking the property with the inspector gives you a deeper understanding of the home's condition and any repairs needed. Sellers and agents are welcome to schedule without the buyer present.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is an ASHI Certified home inspector?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "ASHI (American Society of Home Inspectors) certification requires passing a rigorous exam, completing 250 paid inspections, and adhering to a strict code of ethics and standards of practice. It is the gold standard for home inspection credentials.",
+        text: "Yes. Alaska has elevated radon levels in many areas. Radon is invisible and odorless — testing is the only way to know your level. We offer professional 48-hour radon testing.",
       },
     },
   ],
@@ -73,91 +65,135 @@ export default function HomePage() {
       />
 
       {/* HERO */}
-      <section className="bg-[#1a3a5c] text-white">
-        <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <section className="bg-[#0F172A] text-white">
+        <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-3">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-slate-300 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 tracking-wide uppercase">
               ASHI Certified · Anchorage, AK
-            </p>
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
-              Anchorage&apos;s Most Trusted Home Inspector
+            </div>
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-5">
+              Home Inspection in Anchorage, AK You Can Trust — Before You Buy
             </h1>
-            <p className="text-slate-300 text-lg mb-6 leading-relaxed">
-              38 years of Alaska construction experience. Same-day written reports.
-              5-star rated. Serving Anchorage, Eagle River, Wasilla, Palmer, and the Kenai Peninsula.
+            <p className="text-slate-300 text-lg leading-relaxed mb-8">
+              Get a clear, professional inspection so you know exactly what you&apos;re buying
+              and avoid costly surprises after closing.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="tel:+19072233725"
-                className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-lg text-lg transition-colors"
-              >
+            <div className="flex flex-wrap gap-3 mb-10">
+              <Link href="/contact" className="bg-[#2563EB] hover:bg-[#1d4ed8] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-150 text-base">
+                Book Your Inspection
+              </Link>
+              <a href="tel:+19072233725" className="border border-white/30 text-white hover:bg-white/10 font-semibold px-7 py-3.5 rounded-lg transition-all duration-150 text-base">
                 Call (907) 223-3725
               </a>
-              <Link
-                href="/contact"
-                className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg transition-colors border border-white/20"
-              >
-                Request Inspection →
-              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {[
+                "38+ Years Construction Experience",
+                "20+ Years Real Estate Experience",
+                "Serving Anchorage & Surrounding Areas",
+              ].map((t) => (
+                <div key={t} className="flex items-center gap-2 text-sm text-slate-300">
+                  <span className="text-[#2563EB] shrink-0">✓</span>
+                  {t}
+                </div>
+              ))}
             </div>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
-            <h2 className="text-white font-bold text-xl mb-5">Request Your Inspection</h2>
+
+          <div className="bg-white rounded-2xl p-6 md:p-8 shadow-2xl">
+            <h2 className="text-[#0F172A] font-bold text-xl mb-1">Book Your Inspection</h2>
+            <p className="text-[#64748B] text-sm mb-5">We respond within 1 business hour.</p>
             <ContactForm />
           </div>
         </div>
       </section>
 
-      {/* TRUST BAR */}
-      <section className="bg-amber-500 text-white">
-        <div className="max-w-6xl mx-auto px-4 py-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm font-semibold">
-          <div>⭐⭐⭐⭐⭐ 5.0 Stars</div>
-          <div>🏅 ASHI Certified Inspector</div>
-          <div>📋 Same-Day Reports</div>
-          <div>🔨 38 Yrs Construction Experience</div>
+      {/* WHAT YOU GET */}
+      <section className="bg-[#F9FAFB] py-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-3">
+              Know Exactly What You&apos;re Buying
+            </h2>
+            <p className="text-[#64748B] text-lg max-w-xl mx-auto">
+              A thorough inspection gives you the information you need — before you're committed.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+            {[
+              {
+                icon: "🔍",
+                title: "Avoid Costly Surprises",
+                body: "We uncover issues early so you don't inherit expensive problems after closing.",
+              },
+              {
+                icon: "🧭",
+                title: "Make Confident Decisions",
+                body: "Clear insights help you move forward — or walk away — with confidence.",
+              },
+              {
+                icon: "💼",
+                title: "Negotiate with Leverage",
+                body: "Use inspection findings to protect your investment and negotiate repairs.",
+              },
+              {
+                icon: "📋",
+                title: "Get a Clear, Usable Report",
+                body: "Straightforward findings you and your agent can act on immediately.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="card p-6">
+                <div className="text-3xl mb-4">{item.icon}</div>
+                <h3 className="font-bold text-[#0F172A] mb-2">{item.title}</h3>
+                <p className="text-[#64748B] text-sm leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-[#1a3a5c] mb-3">
-            Inspection Services in Anchorage, AK
-          </h2>
-          <p className="text-center text-slate-600 mb-10 max-w-2xl mx-auto">
-            Whether you&apos;re buying a home, purchasing commercial property, or need radon testing,
-            Signature Inspection Service delivers thorough, accurate reports you can act on.
-          </p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-3">
+              Inspection Services in Anchorage, AK
+            </h2>
+            <p className="text-[#64748B] max-w-xl mx-auto">
+              Residential, commercial, and radon testing — all from an ASHI Certified inspector with
+              decades of Alaska construction experience.
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 icon: "🏠",
                 title: "Home Inspection",
-                desc: "Comprehensive residential inspection covering structure, roof, electrical, plumbing, HVAC, and Alaska-specific issues like ice damming and permafrost settlement.",
+                body: "Complete evaluation of major systems so you understand the true condition of the property before you buy.",
                 href: "/home-inspection-anchorage",
-                cta: "Learn More",
               },
               {
                 icon: "🏢",
                 title: "Commercial Inspection",
-                desc: "Detailed commercial building inspections for office buildings, retail spaces, warehouses, and investment properties throughout Anchorage.",
+                body: "Detailed inspections to support smart investment decisions on office buildings, retail, warehouses, and more.",
                 href: "/commercial-inspection-anchorage",
-                cta: "Learn More",
               },
               {
                 icon: "☢️",
                 title: "Radon Testing",
-                desc: "Professional radon measurement for homes and businesses. EPA-approved testing methods. Alaska has elevated radon risk — test before you buy.",
+                body: "48-hour testing to detect invisible radon gas and protect your health. Alaska has elevated radon risk.",
                 href: "/radon-testing-anchorage",
-                cta: "Learn More",
               },
             ].map((s) => (
-              <div key={s.href} className="border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-4">{s.icon}</div>
-                <h3 className="text-xl font-bold text-[#1a3a5c] mb-2">{s.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4">{s.desc}</p>
-                <Link href={s.href} className="text-amber-600 font-semibold hover:underline text-sm">
-                  {s.cta} →
+              <div key={s.href} className="card p-7 flex flex-col">
+                <div className="text-4xl mb-5">{s.icon}</div>
+                <h3 className="text-xl font-bold text-[#0F172A] mb-3">{s.title}</h3>
+                <p className="text-[#64748B] text-sm leading-relaxed mb-6 flex-1">{s.body}</p>
+                <Link
+                  href={s.href}
+                  className="btn-primary text-center text-sm"
+                >
+                  Schedule Inspection →
                 </Link>
               </div>
             ))}
@@ -165,126 +201,170 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="bg-slate-50 py-16">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-[#1a3a5c] mb-6">
-              Why Anchorage Home Buyers Choose Larry McBain
+      {/* PROCESS */}
+      <section className="bg-[#F9FAFB] py-20">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-3">
+              Simple, Straightforward, Done Right
             </h2>
-            <div className="space-y-4">
-              {[
-                {
-                  title: "38 Years of Alaska Construction",
-                  body: "Larry has spent nearly four decades building, remodeling, and evaluating properties in Alaska. He knows exactly where problems hide.",
-                },
-                {
-                  title: "ASHI Certified — The Gold Standard",
-                  body: "ASHI certification requires 250+ paid inspections and a rigorous national exam. It's the credential top buyers and agents trust.",
-                },
-                {
-                  title: "Same-Day Written Report",
-                  body: "You receive a detailed, photo-rich written report the same day as your inspection — so you can negotiate with confidence immediately.",
-                },
-                {
-                  title: "Alaska-Specific Expertise",
-                  body: "Ice dams, permafrost movement, freeze/thaw damage, seismic concerns — Larry has seen it all and knows what to look for.",
-                },
-              ].map((item) => (
-                <div key={item.title} className="flex gap-3">
-                  <span className="text-amber-500 font-bold text-lg mt-0.5">✓</span>
-                  <div>
-                    <p className="font-semibold text-[#1a3a5c]">{item.title}</p>
-                    <p className="text-slate-600 text-sm">{item.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="text-[#64748B]">Three steps from call to report.</p>
           </div>
-          <div className="bg-[#1a3a5c] text-white rounded-2xl p-8">
-            <p className="text-amber-400 font-semibold text-sm uppercase tracking-wide mb-2">About Larry McBain</p>
-            <h3 className="text-2xl font-bold mb-4">President & Lead Inspector</h3>
-            <p className="text-slate-300 leading-relaxed mb-4">
-              Larry McBain has been in the Alaska construction and real estate industry for over three
-              decades. As founder of Signature Inspection Service Inc., he brings unmatched local
-              knowledge to every inspection — from small condos in Midtown to large commercial
-              properties across the Mat-Su Valley.
-            </p>
-            <p className="text-slate-300 leading-relaxed mb-6">
-              His background includes 20 years of real estate experience, giving him a unique perspective
-              on what buyers, sellers, and agents need from an inspection report.
-            </p>
-            <Link href="/about" className="text-amber-400 font-semibold hover:underline">
-              Read Larry&apos;s Full Bio →
-            </Link>
+          <div className="grid md:grid-cols-3 gap-6 relative">
+            {[
+              { n: "1", title: "Book your inspection", body: "Call (907) 223-3725 or submit the form. We confirm within 1 business hour." },
+              { n: "2", title: "We perform a thorough inspection", body: "Larry inspects every accessible area. Buyers are welcome and encouraged to attend." },
+              { n: "3", title: "You receive a clear report with next steps", body: "A detailed, photo-rich written report arrives the same day your inspection is completed." },
+            ].map((step) => (
+              <div key={step.n} className="card p-7 text-center">
+                <div className="w-12 h-12 bg-[#2563EB] text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-5">
+                  {step.n}
+                </div>
+                <h3 className="font-bold text-[#0F172A] mb-2">{step.title}</h3>
+                <p className="text-[#64748B] text-sm leading-relaxed">{step.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <a href="tel:+19072233725" className="btn-primary text-base px-8 py-4">
+              Call to Book Now — (907) 223-3725
+            </a>
           </div>
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-[#1a3a5c] mb-3">
-            How the Process Works
-          </h2>
-          <p className="text-center text-slate-600 mb-10">Simple, fast, and stress-free.</p>
-          <div className="grid md:grid-cols-3 gap-8">
+      {/* WHY CHOOSE US */}
+      <section className="bg-white py-20">
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-14 items-center">
+          <div>
+            <p className="text-[#2563EB] font-semibold text-sm uppercase tracking-widest mb-3">
+              About Larry McBain
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-5">
+              Experience You Can Actually Rely On
+            </h2>
+            <p className="text-[#64748B] leading-relaxed mb-7">
+              With decades of construction and real estate experience, you&apos;re getting real insight —
+              not just a checklist. Larry has spent nearly 40 years building and evaluating properties
+              across Alaska, and he knows exactly where problems hide.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {[
+                "Deep construction knowledge",
+                "Local Alaska expertise",
+                "Clear communication",
+                "Detailed reporting",
+                "Reliable and thorough",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-sm text-[#0F172A]">
+                  <span className="w-5 h-5 bg-[#EFF6FF] rounded-full flex items-center justify-center text-[#2563EB] text-xs shrink-0">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Link href="/about" className="btn-outline text-sm">
+              Read Larry&apos;s Full Bio →
+            </Link>
+          </div>
+
+          <div className="space-y-4">
             {[
-              {
-                step: "1",
-                title: "Schedule in Minutes",
-                body: "Call (907) 223-3725 or submit the form above. We respond within 1 business hour to confirm your inspection time.",
-              },
-              {
-                step: "2",
-                title: "Walk the Property Together",
-                body: "Larry inspects every accessible area of the property. Buyers are encouraged to attend and ask questions in real time.",
-              },
-              {
-                step: "3",
-                title: "Receive Your Report Same Day",
-                body: "A detailed written report with photos arrives the same day. Use it to negotiate repairs, plan improvements, or proceed with confidence.",
-              },
-            ].map((p) => (
-              <div key={p.step} className="text-center">
-                <div className="w-14 h-14 bg-amber-500 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                  {p.step}
-                </div>
-                <h3 className="font-bold text-[#1a3a5c] text-lg mb-2">{p.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{p.body}</p>
+              { stat: "38+", label: "Years construction experience" },
+              { stat: "20+", label: "Years real estate experience" },
+              { stat: "5.0★", label: "Google rating" },
+              { stat: "ASHI", label: "Certified — gold standard in home inspection" },
+            ].map((item) => (
+              <div key={item.label} className="card p-5 flex items-center gap-5">
+                <div className="text-2xl font-bold text-[#2563EB] w-16 shrink-0">{item.stat}</div>
+                <p className="text-[#0F172A] font-medium text-sm">{item.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* RADON */}
+      <section className="bg-[#0F172A] text-white py-20">
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-5">
+              Radon Is Invisible — But It Matters
+            </h2>
+            <p className="text-slate-300 leading-relaxed mb-4">
+              Radon is a naturally occurring gas that can be harmful at high levels.
+              You won&apos;t know it&apos;s there without testing.
+            </p>
+            <p className="text-slate-300 leading-relaxed mb-8">
+              We provide professional 48-hour radon testing so you can move forward with confidence.
+              Alaska has elevated radon risk — don&apos;t skip this step.
+            </p>
+            <Link href="/radon-testing-anchorage" className="bg-[#2563EB] hover:bg-[#1d4ed8] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-6 py-3 rounded-lg transition-all duration-150 inline-block">
+              Add Radon Testing →
+            </Link>
+          </div>
+          <div className="card bg-white/5 border-white/10 p-8">
+            <div className="space-y-5">
+              {[
+                { icon: "🚫", label: "No color, no smell, no taste" },
+                { icon: "⚠️", label: "Second leading cause of lung cancer in the U.S." },
+                { icon: "🧪", label: "48-hour EPA-approved test" },
+                { icon: "📄", label: "Written report with mitigation guidance if needed" },
+                { icon: "📍", label: "Alaska has elevated radon concentrations" },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-4 text-sm text-slate-300">
+                  <span className="text-xl">{item.icon}</span>
+                  {item.label}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE AREAS */}
+      <section className="bg-[#F9FAFB] py-14">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-[#0F172A] mb-2">Service Areas</h2>
+          <p className="text-[#64748B] mb-7 text-sm">Serving Anchorage and all of southcentral Alaska.</p>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {["Anchorage","Wasilla","Eagle River","Palmer","Girdwood","Seward","Homer","Kenai Peninsula"].map((area) => (
+              <span key={area} className="bg-white border border-[#E5E7EB] rounded-full px-4 py-2 text-sm text-[#0F172A] font-medium shadow-sm">
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* TESTIMONIALS */}
-      <section className="bg-[#1a3a5c] text-white py-16">
+      <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-10">What Anchorage Clients Say</h2>
+          <h2 className="text-3xl font-bold text-center text-[#0F172A] mb-10">
+            What Clients Say
+          </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                quote: "Larry was incredibly thorough. He caught several issues the previous inspector had missed, which saved us thousands in unexpected repairs. Highly recommend.",
+                quote: "Larry was incredibly thorough. He caught several issues the previous inspector missed, which saved us thousands. Highly recommend.",
                 name: "Jennifer M.",
                 detail: "Home Buyer, Anchorage",
               },
               {
-                quote: "Professional, punctual, and detailed. The report was easy to read and included clear photos of every issue. Our real estate agent says Larry is the best in Anchorage.",
+                quote: "Professional, punctual, and detailed. The report was easy to read with clear photos of every issue. Our agent says Larry is the best in Anchorage.",
                 name: "David & Carla T.",
                 detail: "Home Buyers, Eagle River",
               },
               {
-                quote: "We used Signature Inspection for our commercial building purchase. Larry's knowledge of construction made the difference — he spotted structural concerns others overlooked.",
+                quote: "We used Signature Inspection for our commercial building purchase. Larry's construction knowledge made the difference — he spotted structural concerns others overlooked.",
                 name: "Ryan K.",
-                detail: "Commercial Property Buyer, Anchorage",
+                detail: "Commercial Buyer, Anchorage",
               },
             ].map((t) => (
-              <div key={t.name} className="bg-white/10 rounded-xl p-6">
-                <p className="text-amber-400 text-xl mb-3">★★★★★</p>
-                <p className="text-slate-200 text-sm leading-relaxed mb-4 italic">&ldquo;{t.quote}&rdquo;</p>
-                <p className="font-semibold text-white">{t.name}</p>
-                <p className="text-slate-400 text-xs">{t.detail}</p>
+              <div key={t.name} className="card p-6">
+                <p className="text-[#2563EB] text-lg mb-3">★★★★★</p>
+                <p className="text-[#0F172A] text-sm leading-relaxed mb-5 italic">&ldquo;{t.quote}&rdquo;</p>
+                <p className="font-semibold text-[#0F172A] text-sm">{t.name}</p>
+                <p className="text-[#64748B] text-xs">{t.detail}</p>
               </div>
             ))}
           </div>
@@ -292,85 +372,45 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-16">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-[#1a3a5c] mb-3">
-            Frequently Asked Questions
+      <section className="bg-[#F9FAFB] py-20">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-[#0F172A] mb-2">
+            Common Questions
           </h2>
-          <p className="text-center text-slate-500 mb-10 text-sm">
-            Common questions about home inspections in Anchorage, AK
+          <p className="text-center text-[#64748B] mb-10 text-sm">
+            Everything you need to know before booking.
           </p>
-          <div className="space-y-6">
+          <div className="space-y-5">
             {faqSchema.mainEntity.map((item) => (
-              <div key={item.name} className="border-b border-slate-200 pb-6">
-                <h3 className="font-bold text-[#1a3a5c] mb-2">{item.name}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{item.acceptedAnswer.text}</p>
+              <div key={item.name} className="card p-6">
+                <h3 className="font-bold text-[#0F172A] mb-2 text-sm">{item.name}</h3>
+                <p className="text-[#64748B] text-sm leading-relaxed">{item.acceptedAnswer.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* SERVICE AREAS */}
-      <section className="bg-slate-50 py-14">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-[#1a3a5c] mb-3">
-            Home Inspection Service Areas in Alaska
-          </h2>
-          <p className="text-slate-600 mb-6 text-sm">
-            Signature Inspection Service covers Anchorage and all surrounding communities.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              "Anchorage, AK",
-              "Eagle River, AK",
-              "Wasilla, AK",
-              "Palmer, AK",
-              "Girdwood, AK",
-              "Seward, AK",
-              "Homer, AK",
-              "Soldotna, AK",
-              "Kenai, AK",
-            ].map((area) => (
-              <span
-                key={area}
-                className="bg-white border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-700 font-medium"
-              >
-                {area}
-              </span>
-            ))}
-          </div>
-          <p className="text-slate-500 text-xs mt-4">
-            Not sure if we cover your area?{" "}
-            <a href="tel:+19072233725" className="text-[#1a3a5c] font-medium underline">
-              Call (907) 223-3725
-            </a>
-          </p>
-        </div>
-      </section>
-
       {/* FINAL CTA */}
-      <section className="bg-amber-500 py-14">
+      <section className="bg-[#2563EB] py-20">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-3">
-            Ready to Schedule Your Inspection?
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            Book Your Inspection Today
           </h2>
-          <p className="text-amber-100 mb-6 text-lg">
-            We respond within 1 business hour. Same-day reports. ASHI Certified.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <a
-              href="tel:+19072233725"
-              className="bg-white text-amber-600 font-bold px-8 py-4 rounded-lg text-lg hover:bg-amber-50 transition-colors"
-            >
-              Call (907) 223-3725
-            </a>
+          <p className="text-blue-100 text-lg mb-8">Get clarity before you commit.</p>
+          <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="bg-amber-700 text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-amber-800 transition-colors"
+              className="bg-white text-[#2563EB] font-bold px-8 py-4 rounded-lg text-base hover:-translate-y-0.5 hover:shadow-lg transition-all duration-150"
             >
-              Book Online →
+              Book Now
             </Link>
+            <a
+              href="tel:+19072233725"
+              className="border-2 border-white text-white font-bold px-8 py-4 rounded-lg text-base hover:-translate-y-0.5 hover:bg-white/10 transition-all duration-150"
+            >
+              Call (907) 223-3725
+            </a>
           </div>
         </div>
       </section>
