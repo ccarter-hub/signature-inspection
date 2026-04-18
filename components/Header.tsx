@@ -6,7 +6,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-[#E5E7EB] shadow-sm">
+    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-[#E5E7EB]/60 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex flex-col leading-none">
           <span className="text-[#0F172A] font-bold text-base leading-tight">

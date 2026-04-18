@@ -57,7 +57,7 @@ export default function HomeInspectionPage() {
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
           <div>
             <p className="text-[#2563EB] text-xs font-semibold uppercase tracking-widest mb-3">Home Inspection · Anchorage, AK</p>
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-5">
+            <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-5">
               Home Inspection in Anchorage, AK
             </h1>
             <p className="text-slate-300 leading-relaxed mb-6">
