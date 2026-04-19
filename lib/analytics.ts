@@ -31,7 +31,7 @@ export const track = {
     trackEvent("form_submit", { event_category: "conversion", form_id: "contact" }),
 
   ctaClick: (label: string, destination?: string) =>
-    trackEvent("cta_click", { event_category: "engagement", label, destination }),
+    trackEvent("cta_click", { event_category: "engagement", label, ...(destination !== undefined && { destination }) }),
 
   quoteTab: (service: string) =>
     trackEvent("quote_tab_click", { event_category: "engagement", service }),
