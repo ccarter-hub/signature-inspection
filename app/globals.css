@@ -45,21 +45,21 @@ body {
 }
 .cta-ring { animation: cta-pulse 2.8s ease-in-out infinite; }
 
-/* Hero Ken Burns drift — cinematic slow zoom/drift, always GPU-composited */
+/* Hero Ken Burns drift — barely perceptible, luxury scale range */
 @keyframes hero-drift {
-  0%   { transform: scale(1.04) translate(0, 0); }
-  50%  { transform: scale(1.07) translate(-0.8%, -0.25%); }
-  100% { transform: scale(1.04) translate(0, 0); }
+  0%   { transform: scale(1.02) translate(0, 0); }
+  50%  { transform: scale(1.045) translate(-0.5%, -0.15%); }
+  100% { transform: scale(1.02) translate(0, 0); }
 }
 .hero-drift {
-  animation: hero-drift 24s ease-in-out infinite;
+  animation: hero-drift 28s ease-in-out infinite;
   transform-origin: 68% 50%;
   will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-drift {
     animation: none;
-    transform: scale(1.04);
+    transform: scale(1.02);
   }
 }
 
