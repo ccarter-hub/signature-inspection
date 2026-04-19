@@ -108,23 +108,15 @@ export default function HomePage() {
           fill
           priority
           className="object-cover hero-drift"
-          style={{ objectPosition: "65% center" }}
+          style={{ objectPosition: "38% center" }}
           sizes="100vw"
         />
 
-        {/* ── Overlay stack — 3 layers, breathable ── */}
-        {/* Left gradient: soft atmospheric, not a wall — fades to transparent by 60% */}
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(3,9,18,0.62) 0%, rgba(3,9,18,0.22) 38%, transparent 62%)" }}
-        />
-        {/* Bottom anchor: text reads without crushing the image above */}
-        <div
-          className="absolute inset-x-0 bottom-0"
-          style={{ height: "48%", background: "linear-gradient(to top, rgba(3,9,18,0.88) 0%, rgba(3,9,18,0.28) 50%, transparent 100%)" }}
-        />
-        {/* Ambient blue depth — atmospheric, wide, soft */}
-        <div className="pointer-events-none absolute bottom-[4%] -left-20 h-[580px] w-[580px] rounded-full bg-[#1e3a8a]/[0.10] blur-[140px]" />
+        {/* Overlay stack */}
+        <div className="absolute inset-0 bg-[#030912]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030912]/90 via-[#030912]/52 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#030912] via-[#030912]/60 to-transparent" />
+        <div className="pointer-events-none absolute bottom-[8%] -left-10 h-[520px] w-[520px] rounded-full bg-[#1d4ed8]/[0.14] blur-[90px]" />
 
         {/* Content — bottom-anchored, left-aligned */}
         <div
@@ -133,73 +125,70 @@ export default function HomePage() {
         >
           <div className="mx-auto w-full max-w-7xl">
             <div className="max-w-[600px]">
-              {/* Eyebrow — editorial, premium */}
-              <p className="mb-5 text-[10.5px] font-medium uppercase tracking-[0.22em] text-white/50">
-                Anchorage, AK &nbsp;·&nbsp; ASHI Certified &nbsp;·&nbsp; Available This Week
-              </p>
+              {/* Urgency chip */}
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/[0.07] px-4 py-1.5">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
+                <span className="text-[11px] font-semibold tracking-wide text-red-300">
+                  Scheduling fills 5–7 days out · Check availability now
+                </span>
+              </div>
 
               <h1
-                className="mb-5 font-display font-bold leading-[1.08] text-white"
-                style={{ fontSize: "clamp(2.4rem, 5.2vw, 3.6rem)", letterSpacing: "-0.018em", textShadow: "0 1px 10px rgba(0,0,0,0.35)" }}
+                className="mb-4 font-display font-bold leading-[1.05] text-white"
+                style={{ fontSize: "clamp(2.5rem, 5.5vw, 3.75rem)", letterSpacing: "-0.020em", textShadow: "0 2px 20px rgba(0,0,0,0.80)" }}
               >
                 Most Buyers Find Out
                 <br className="hidden sm:block" /> Too Late.{" "}
                 <span className="text-[#93C5FD]">You Won&rsquo;t.</span>
               </h1>
 
-              <p className="mb-7 max-w-[460px] text-[15px] leading-[1.72] text-white/75 sm:font-light">
+              <p className="mb-5 max-w-[500px] text-[16px] leading-[1.65] text-slate-100">
                 <span className="sm:hidden">200+ point ASHI inspection. Same-day report. Real leverage before your contingency closes.</span>
                 <span className="hidden sm:inline">Larry McBain delivers a 200+ point ASHI Certified inspection with a same-day written report — giving you real leverage before your contingency expires.</span>
               </p>
 
               {/* CTAs */}
-              <div className="mb-7 flex flex-col gap-3 sm:flex-row">
-                {/* Mobile primary: call */}
+              <div className="mb-6 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="tel:+19072233725"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#2563EB] px-6 py-3.5 text-[14px] font-semibold text-white transition-all duration-200 hover:bg-[#1d4ed8] sm:hidden"
+                  className="cta-ring inline-flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8] sm:hidden"
                 >
-                  <Phone className="h-4 w-4" /> Call Now: (907) 223-3725
+                  <Phone className="h-4 w-4" /> Call to Book: (907) 223-3725
                 </a>
-                {/* Desktop primary */}
                 <Link
                   href="#quote"
-                  className="hidden items-center justify-center gap-2 rounded-lg bg-[#2563EB] px-6 py-3.5 text-[14px] font-semibold text-white transition-all duration-200 hover:bg-[#1d4ed8] sm:inline-flex"
+                  className="hidden items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white shadow-[0_0_32px_rgba(37,99,235,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8] sm:inline-flex"
                 >
-                  Book an Inspection <ArrowRight className="h-3.5 w-3.5" />
+                  Book My Inspection <ArrowRight className="h-4 w-4" />
                 </Link>
-                {/* Secondary */}
                 <Link
                   href="#quote"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/[0.20] px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:text-white sm:hidden"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.20] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10] sm:hidden"
                 >
-                  Check Availability
+                  Check Availability <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
                   href="tel:+19072233725"
-                  className="hidden items-center justify-center gap-2 rounded-lg border border-white/[0.20] px-6 py-3.5 text-[14px] font-medium text-white/85 backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:text-white sm:inline-flex"
+                  className="hidden items-center justify-center gap-2 rounded-xl border border-white/[0.20] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10] sm:inline-flex"
                 >
-                  <Phone className="h-3.5 w-3.5 text-white/60" /> (907) 223-3725
+                  <Phone className="h-4 w-4 text-[#93C5FD]" /> (907) 223-3725
                 </a>
               </div>
-              <p className="mb-5 text-[12px] text-white/50 tracking-wide">
-                From{" "}<span className="font-medium text-white/75">$350</span>{" "}·{" "}Same-day written report{" "}·{" "}Fee-back guarantee
+              <p className="mb-4 text-[12px] text-slate-400">
+                Home inspections from{" "}<span className="font-semibold text-slate-200">$350</span>{" "}·{" "}Same-day written report{" "}·{" "}Fee-back guarantee
               </p>
 
               {/* Proof row — desktop only */}
-              <div className="hidden sm:flex items-center border-t border-white/[0.10] pt-5">
+              <div className="hidden sm:flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/[0.12] pt-5">
                 {[
-                  { icon: <CheckCircle2 className="h-3 w-3 text-emerald-400/80" />, text: "Same-Day Report" },
-                  { icon: <Star className="h-3 w-3 fill-yellow-400/80 text-yellow-400/80" />, text: "5.0 · 47 Reviews" },
-                  { icon: <ShieldCheck className="h-3 w-3 text-[#93C5FD]/70" />, text: "ASHI Certified" },
-                  { icon: <Clock className="h-3 w-3 text-[#93C5FD]/70" />, text: "1-Hr Response" },
-                ].map(({ icon, text }, i) => (
-                  <div key={text} className="flex items-center">
-                    {i > 0 && <span className="mx-4 h-2.5 w-px shrink-0 bg-white/[0.12]" />}
-                    <div className="flex items-center gap-1.5">
-                      {icon}
-                      <span className="text-[11.5px] font-medium text-white/50">{text}</span>
-                    </div>
+                  { icon: <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />, text: "Same-Day Report" },
+                  { icon: <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />, text: "5.0 · 47 Reviews" },
+                  { icon: <ShieldCheck className="h-3.5 w-3.5 text-[#93C5FD]" />, text: "ASHI Certified" },
+                  { icon: <Clock className="h-3.5 w-3.5 text-[#93C5FD]" />, text: "1-Hr Response" },
+                ].map(({ icon, text }) => (
+                  <div key={text} className="flex items-center gap-1.5">
+                    {icon}
+                    <span className="text-[12px] font-medium text-slate-300">{text}</span>
                   </div>
                 ))}
               </div>
