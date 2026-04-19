@@ -62,6 +62,13 @@ body {
     transform: scale(1.02);
   }
 }
+/* Disable drift on mobile — GPU-composited animation wastes battery on phones */
+@media (max-width: 639px) {
+  .hero-drift {
+    animation: none;
+    transform: scale(1.02);
+  }
+}
 
 /* Mobile hero image framing — shows Larry's face/upper body on portrait */
 .hero-img-pos {

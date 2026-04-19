@@ -64,13 +64,13 @@ export default function StickyMobileCTA() {
             <span className="text-[13px] font-bold leading-tight">Call Now</span>
             <span className="text-[10px] text-blue-200">(907) 223-3725</span>
           </a>
-          <Link
-            href="#quote"
+          <a
+            href="sms:+19072233725"
             className="flex flex-col items-center justify-center rounded-xl border border-white/[0.18] py-2.5 text-white transition-colors active:bg-white/[0.08]"
           >
-            <span className="text-[13px] font-bold leading-tight">Check Availability</span>
-            <span className="text-[10px] text-slate-500">Takes 30 seconds</span>
-          </Link>
+            <span className="text-[13px] font-bold leading-tight">Text Us</span>
+            <span className="text-[10px] text-slate-500">(907) 223-3725</span>
+          </a>
         </div>
       </div>
 
@@ -82,13 +82,13 @@ export default function StickyMobileCTA() {
             <p className="text-slate-400 text-xs">ASHI Certified · Same-Day Reports · 1-Hr Response</p>
           </div>
           <div className="flex items-center gap-2.5">
-            <a
-              href="sms:+19072233725"
+            <Link
+              href="/contact"
               className="border border-white/[0.20] text-white hover:bg-white/[0.08] font-semibold px-4 py-2.5 rounded-lg transition-all duration-150 text-sm whitespace-nowrap flex items-center gap-1.5"
             >
               <MessageSquare className="w-3.5 h-3.5 shrink-0 text-[#34D399]" />
-              Text Us
-            </a>
+              Schedule Now
+            </Link>
             <a
               href="tel:+19072233725"
               className="border border-white/[0.20] text-white hover:bg-white/[0.08] font-semibold px-4 py-2.5 rounded-lg transition-all duration-150 text-sm whitespace-nowrap flex items-center gap-1.5"

@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
     { url: `${base}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${base}/home-inspection-cost-anchorage`, lastModified: now, changeFrequency: "yearly", priority: 0.75 },
+    { url: `${base}/what-does-home-inspection-include`, lastModified: now, changeFrequency: "yearly", priority: 0.70 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     {
       url: `${base}/blog/what-does-a-home-inspection-include-in-alaska`,

@@ -74,8 +74,8 @@ export default function ContactPage() {
       <section className="bg-[#F9FAFB] py-14">
         <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-5 gap-10">
 
-          {/* Form — wider col */}
-          <div className="md:col-span-3 bg-white rounded-2xl p-7 shadow-sm border border-[#E5E7EB]">
+          {/* Form — wider col, second on mobile, first on desktop */}
+          <div className="md:col-span-3 bg-white rounded-2xl p-7 shadow-sm border border-[#E5E7EB] order-2 md:order-1">
             <h2 className="text-xl font-bold text-[#0F172A] mb-1">Request Your Inspection</h2>
             <p className="text-[#64748B] text-sm mb-6">
               Fill out the form below — we call you back within 1 business hour to confirm your booking.
@@ -96,8 +96,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Right col — contact info */}
-          <div className="md:col-span-2 space-y-5">
+          {/* Right col — contact info, first on mobile, second on desktop */}
+          <div className="md:col-span-2 space-y-5 order-1 md:order-2">
             <div>
               <h2 className="text-lg font-bold text-[#0F172A] mb-4">Contact Information</h2>
               <div className="space-y-4">

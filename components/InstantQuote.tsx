@@ -139,7 +139,7 @@ export default function InstantQuote() {
                 <div className="flex items-center gap-2 rounded-xl border border-red-500/20 bg-red-500/[0.07] px-4 py-2.5">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-red-400" />
                   <div>
-                    <p className="text-[11px] font-bold text-red-300">Next Available: Tomorrow</p>
+                    <p className="text-[11px] font-bold text-red-300">Scheduling fills fast</p>
                     <p className="text-[10px] text-red-700">Slots fill 5–7 days out</p>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ export default function InstantQuote() {
                   className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl py-4 text-[15px] font-bold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5"
                   style={{ background: svc.color, boxShadow: `0 0 32px ${svc.color}40` }}
                 >
-                  Book Now — {svc.price} <ArrowRight className="h-4 w-4" />
+                  Request Your Slot — {svc.price} <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
                   href="tel:+19072233725"

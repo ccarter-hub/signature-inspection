@@ -14,26 +14,10 @@ import RealWorldProof from "@/components/RealWorldProof";
 import GuaranteeSection from "@/components/GuaranteeSection";
 
 export const metadata: Metadata = {
-  title: "Home Inspector Anchorage, AK | ASHI Certified | Signature Inspection Service",
+  title: "Home Inspector Anchorage AK | ASHI Certified | Signature Inspection",
   description:
     "Anchorage's top-rated home inspector — ASHI Certified, 5.0 stars (47 reviews), same-day written reports. Larry McBain: 38+ years Alaska construction experience. Home, commercial & radon. Call (907) 223-3725.",
   alternates: { canonical: "https://signatureinspectionservice.com" },
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "Signature Inspection Service Inc.",
-  telephone: "+1-907-223-3725",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "8541 Raintree Circle",
-    addressLocality: "Anchorage",
-    addressRegion: "AK",
-    postalCode: "99507",
-  },
-  url: "https://signatureinspectionservice.com",
-  aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "47" },
 };
 
 const faqSchema = {
@@ -70,6 +54,21 @@ const faqSchema = {
       name: "What makes Signature Inspection Service different from other Anchorage home inspectors?",
       acceptedAnswer: { "@type": "Answer", text: "Larry McBain is ASHI Certified — a national exam plus 250 paid inspections — and brings 38+ years of Alaska general contracting experience. He knows ice dams, permafrost, and freeze/thaw damage from building Alaska homes. His same-day reports and 1-hour response guarantee set the standard in Anchorage." },
     },
+    {
+      "@type": "Question",
+      name: "What happens if the home inspection finds serious problems?",
+      acceptedAnswer: { "@type": "Answer", text: "Serious findings are a normal part of the inspection process and often lead to negotiation leverage, not deal-killers. Larry's report uses a severity-coding system (critical / monitor / acceptable) and plain-English explanations so you know exactly what to negotiate, what to repair after closing, and what's cosmetic. Many buyers use findings to negotiate thousands off the purchase price. Larry is available by phone to walk you through the report." },
+    },
+    {
+      "@type": "Question",
+      name: "How long does a home inspection take in Anchorage?",
+      acceptedAnswer: { "@type": "Answer", text: "A typical Anchorage home inspection takes 2.5–4 hours depending on the size and age of the property. Larger homes, older construction, or properties with known issues may take longer. You're welcome to attend — most buyers find it valuable to walk through with Larry and ask questions in real time." },
+    },
+    {
+      "@type": "Question",
+      name: "Should I be present during the home inspection?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes, highly recommended. Attending the inspection lets you ask questions in real time, see findings firsthand, and understand the context of each item in the report. Larry explains everything on-site in plain language so nothing in the report surprises you. Plan for 2.5–4 hours." },
+    },
   ],
 };
 
@@ -97,7 +96,6 @@ const reviews = [
 export default function HomePage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ─── 1. HERO — image-forward, no overlay card ─────────────────────── */}
@@ -175,9 +173,9 @@ export default function HomePage() {
               </div>
 
               {/* ── Desktop CTAs ── */}
-              <div className="hidden sm:flex mb-6 gap-3">
+              <div className="hidden sm:flex mb-4 gap-3">
                 <Link
-                  href="#quote"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white shadow-[0_0_32px_rgba(37,99,235,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8]"
                 >
                   Book My Inspection <ArrowRight className="h-4 w-4" />
@@ -189,6 +187,11 @@ export default function HomePage() {
                   <Phone className="h-4 w-4 text-[#93C5FD]" /> (907) 223-3725
                 </a>
               </div>
+
+              {/* Micro-testimonial */}
+              <p className="mb-5 text-[11px] italic leading-snug text-slate-500">
+                &ldquo;Found a $18k foundation issue. Best $350 we ever spent.&rdquo; — Jennifer M., Anchorage
+              </p>
 
               {/* Trust strip */}
               <p className="mb-4 text-[13px] sm:text-[12px] text-slate-300 sm:text-slate-400">
@@ -310,7 +313,7 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://www.google.com/search?q=Signature+Inspection+Service+Anchorage"
+              href="https://www.google.com/maps/place/Signature+Inspection+Service+Inc/@61.1743,-149.2843,17z"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl border border-[#E0DBCF] bg-white px-5 py-2.5 text-[13px] font-semibold text-[#0F172A] shadow-sm transition-all duration-200 hover:shadow-md"

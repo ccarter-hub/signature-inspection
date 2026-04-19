@@ -140,6 +140,21 @@ const localBusinessSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Radon Testing Anchorage AK" }, priceSpecification: { "@type": "PriceSpecification", price: "125", priceCurrency: "USD" } },
     ],
   },
+  potentialAction: {
+    "@type": "ReserveAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://signatureinspectionservice.com/contact",
+      actionPlatform: [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform",
+      ],
+    },
+    result: {
+      "@type": "Reservation",
+      name: "Home Inspection Booking",
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Phone, Clock, Star, ShieldCheck } from "lucide-react";
+import { ArrowRight, Phone, Clock, Star, ShieldCheck, FileText } from "lucide-react";
 
 export default function CTA() {
   return (
@@ -52,7 +52,7 @@ export default function CTA() {
             { icon: <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />, text: "5.0 · 47 Reviews" },
             { icon: <ShieldCheck className="h-3.5 w-3.5 text-[#60A5FA]" />, text: "ASHI Certified" },
             { icon: <Clock className="h-3.5 w-3.5 text-[#60A5FA]" />, text: "1-Hour Response" },
-            { icon: <Clock className="h-3.5 w-3.5 text-[#60A5FA]" />, text: "Same-Day Reports" },
+            { icon: <FileText className="h-3.5 w-3.5 text-[#60A5FA]" />, text: "Same-Day Reports" },
           ].map(({ icon, text }) => (
             <div key={text} className="flex items-center gap-1.5">
               {icon}

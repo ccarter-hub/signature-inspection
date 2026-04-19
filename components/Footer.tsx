@@ -127,7 +127,7 @@ export default function Footer() {
               <span>Facebook</span>
             </a>
             <a
-              href="https://www.google.com/search?q=Signature+Inspection+Service+Anchorage"
+              href="https://www.google.com/maps/place/Signature+Inspection+Service+Inc/@61.1743,-149.2843,17z"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-slate-400 transition-colors"
