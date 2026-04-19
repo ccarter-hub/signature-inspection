@@ -108,15 +108,15 @@ export default function HomePage() {
           fill
           priority
           className="object-cover hero-drift"
-          style={{ objectPosition: "65% center" }}
+          style={{ objectPosition: "50% center" }}
           sizes="100vw"
         />
 
         {/* Overlay stack */}
-        <div className="absolute inset-0 bg-[#030912]/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030912]/90 via-[#030912]/52 to-transparent" />
+        <div className="absolute inset-0 bg-[#030912]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030912]/92 via-[#030912]/35 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#030912] via-[#030912]/60 to-transparent" />
-        <div className="pointer-events-none absolute bottom-[8%] -left-10 h-[520px] w-[520px] rounded-full bg-[#1d4ed8]/[0.14] blur-[90px]" />
+        <div className="pointer-events-none absolute bottom-[5%] -left-16 h-[700px] w-[700px] rounded-full bg-[#1d4ed8]/[0.22] blur-[100px]" />
 
         {/* Content — bottom-anchored, left-aligned */}
         <div
@@ -137,8 +137,8 @@ export default function HomePage() {
                 className="mb-4 font-display font-bold leading-[1.05] text-white"
                 style={{ fontSize: "clamp(2.5rem, 5.5vw, 3.75rem)", letterSpacing: "-0.020em", textShadow: "0 2px 20px rgba(0,0,0,0.80)" }}
               >
-                Most Buyers Find Out
-                <br className="hidden sm:block" /> Too Late.{" "}
+                Most Buyers Find
+                <br className="hidden sm:block" /> Out Too Late.{" "}
                 <span className="text-[#93C5FD]">You Won&rsquo;t.</span>
               </h1>
 
