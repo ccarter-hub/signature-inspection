@@ -108,7 +108,7 @@ export default function HomePage() {
           fill
           priority
           className="object-cover hero-drift"
-          style={{ objectPosition: "38% center" }}
+          style={{ objectPosition: "65% center" }}
           sizes="100vw"
         />
 
