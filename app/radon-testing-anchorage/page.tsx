@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
+import { CheckCircle2, AlertTriangle, Phone } from "lucide-react";
+
+import Hero from "@/components/Hero";
+import CTA from "@/components/CTA";
+import FaqAccordion from "@/components/FaqAccordion";
 
 export const metadata: Metadata = {
-  title: "Radon Testing in Anchorage, AK | Signature Inspection Service",
+  title: "Radon Testing Anchorage AK | EPA-Approved | Signature Inspection Service",
   description:
-    "Professional radon testing in Anchorage, AK. EPA-approved 48-hour testing. Alaska has elevated radon risk. ASHI Certified. Call (907) 223-3725.",
+    "Professional radon testing in Anchorage, AK. Alaska has elevated radon levels — testing is the only way to know. EPA-approved 48-hour test. Bundle with home inspection and save. Call (907) 223-3725.",
   alternates: { canonical: "https://signatureinspectionservice.com/radon-testing-anchorage" },
 };
 
@@ -15,34 +17,8 @@ const serviceSchema = {
   "@type": "Service",
   name: "Radon Testing in Anchorage, AK",
   provider: { "@type": "LocalBusiness", name: "Signature Inspection Service Inc.", telephone: "+1-907-223-3725" },
-  description: "Professional EPA-approved radon testing in Anchorage, AK. 48-hour testing for homes and commercial properties. Alaska has elevated radon risk.",
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Is radon a problem in Anchorage, Alaska?",
-      acceptedAnswer: { "@type": "Answer", text: "Yes. Alaska has elevated radon levels in many areas including Anchorage, Eagle River, and the Mat-Su Valley. Testing is the only way to know your home's radon level." },
-    },
-    {
-      "@type": "Question",
-      name: "What is a safe radon level?",
-      acceptedAnswer: { "@type": "Answer", text: "The EPA recommends mitigating levels at or above 4 pCi/L. Levels between 2–4 pCi/L should also be reduced if possible. The national average indoor level is 1.3 pCi/L." },
-    },
-    {
-      "@type": "Question",
-      name: "How long does radon testing take in Anchorage?",
-      acceptedAnswer: { "@type": "Answer", text: "Short-term radon tests take 48–96 hours. For real estate transactions, 48-hour short-term tests are standard and accepted by most lenders and buyers." },
-    },
-    {
-      "@type": "Question",
-      name: "What happens if my home has high radon levels?",
-      acceptedAnswer: { "@type": "Answer", text: "If your home tests above 4 pCi/L, a sub-slab depressurization system can reduce levels by up to 99%. Systems typically cost $800–$2,500. We can recommend licensed mitigation contractors in Anchorage." },
-    },
-  ],
+  areaServed: { "@type": "City", name: "Anchorage", containedInPlace: { "@type": "State", name: "Alaska" } },
+  description: "Professional EPA-approved radon testing in Anchorage, AK. 48-hour testing for homes and commercial properties.",
 };
 
 const breadcrumbSchema = {
@@ -54,127 +30,184 @@ const breadcrumbSchema = {
   ],
 };
 
+const faqItems = [
+  {
+    "@type": "Question",
+    name: "Is radon a problem in Anchorage, Alaska?",
+    acceptedAnswer: { "@type": "Answer", text: "Yes. Alaska has elevated radon levels in many areas including Anchorage, Eagle River, and the Mat-Su Valley. Testing is the only way to know your home's radon level." },
+  },
+  {
+    "@type": "Question",
+    name: "What is a safe radon level?",
+    acceptedAnswer: { "@type": "Answer", text: "The EPA recommends mitigating levels at or above 4 pCi/L. Levels between 2–4 pCi/L should also be reduced if possible. The national average indoor level is 1.3 pCi/L." },
+  },
+  {
+    "@type": "Question",
+    name: "How long does radon testing take in Anchorage?",
+    acceptedAnswer: { "@type": "Answer", text: "Short-term radon tests take 48–96 hours. For real estate transactions, 48-hour short-term tests are standard and accepted by most lenders and buyers." },
+  },
+  {
+    "@type": "Question",
+    name: "What happens if my home has high radon levels?",
+    acceptedAnswer: { "@type": "Answer", text: "If your home tests above 4 pCi/L, a sub-slab depressurization system can reduce levels by up to 99%. Systems typically cost $800–$2,500. We can recommend licensed mitigation contractors in Anchorage." },
+  },
+  {
+    "@type": "Question",
+    name: "Can I bundle radon testing with a home inspection?",
+    acceptedAnswer: { "@type": "Answer", text: "Yes. We offer a Home + Radon bundle — the most popular option for buyers. The radon device is placed at the start of the home inspection and picked up 48 hours later. Call (907) 223-3725 to schedule." },
+  },
+];
+
+const whoShouldTest = [
+  { title: "Home Buyers", body: "Test before closing. Elevated radon is negotiable — but only if you know about it." },
+  { title: "Home Sellers", body: "Testing before listing avoids last-minute surprises and builds buyer confidence." },
+  { title: "Homeowners", body: "Radon levels change. Renovations, new occupants, or shifting soil can all affect your reading." },
+  { title: "Commercial Tenants", body: "Ground-level offices and below-grade workspaces face the highest risk. Test before signing." },
+];
+
+const steps = [
+  { n: "1", title: "Schedule", body: "Call or book online. We place the EPA-approved test device at the lowest livable level of your home." },
+  { n: "2", title: "48-Hour Test", body: "Short-term testing under closed-house conditions — the standard for real estate transactions." },
+  { n: "3", title: "Lab Analysis", body: "Device is sent to an accredited laboratory for precise pCi/L measurement." },
+  { n: "4", title: "Written Report", body: "You receive your radon level with context and mitigation guidance if the result is elevated." },
+];
+
 export default function RadonTestingPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems }) }} />
 
-      <section className="relative bg-[#0B1220] text-white py-14 md:py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src="/images/larry-inspecting-5.jpg" alt="" fill className="object-cover object-center opacity-65" sizes="100vw" priority />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/78 via-[#0B1220]/48 to-[#0B1220]/22" />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <p className="text-[#3B82F6] text-xs font-semibold uppercase tracking-widest mb-3">Radon Testing · Anchorage, AK</p>
-            <h1 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-5">
-              Radon Testing in Anchorage, AK
-            </h1>
-            <p className="text-slate-300 leading-relaxed mb-4">
-              Radon is invisible, odorless, and the second leading cause of lung cancer in the U.S.
-              Alaska has elevated radon risk — the only way to know your level is to test.
-            </p>
-            <p className="text-slate-300 leading-relaxed mb-6">
-              We provide EPA-approved 48-hour radon testing for homes and commercial properties
-              throughout Anchorage and southcentral Alaska.
-            </p>
-            <a href="tel:+19072233725" className="bg-[#2563EB] hover:bg-[#1d4ed8] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-6 py-3 rounded-lg transition-all duration-150 inline-block">
-              Call (907) 223-3725
-            </a>
-          </div>
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.25)]">
-            <h2 className="text-[#0B1220] font-bold text-lg mb-1">Schedule Radon Testing</h2>
-            <p className="text-[#64748B] text-sm mb-4">We respond within 1 business hour.</p>
-            <ContactForm />
-          </div>
-        </div>
-      </section>
+      {/* HERO */}
+      <Hero
+        eyebrow="Radon Testing · Anchorage & Southcentral Alaska"
+        headline={
+          <>
+            Alaska Has Some of the<br className="hidden sm:block" /> Highest Radon Levels{" "}
+            <span className="text-[#60A5FA]">in the US.</span>
+          </>
+        }
+        sub="Radon is the #2 cause of lung cancer in America — colorless, odorless, and only detectable by testing. Larry provides EPA-approved 48-hour testing with a written report included."
+        image="/images/larry-inspecting-7.jpg"
+        imageAlt="Larry McBain inspecting electrical panel — Signature Inspection Service Anchorage"
+        imageFocus="45% center"
+      />
 
-      <section className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
-          <div>
-            <h2 className="text-2xl font-bold text-[#0F172A] mb-4">What Is Radon?</h2>
-            <p className="text-[#64748B] leading-relaxed mb-4">
-              Radon is a naturally occurring radioactive gas produced by the decay of uranium in soil and rock.
-              It enters buildings through foundation cracks, sump pits, and gaps in floors and walls.
-            </p>
-            <p className="text-[#64748B] leading-relaxed mb-4">
-              You can&apos;t see it, smell it, or taste it. The only way to know your home&apos;s level is to test.
-            </p>
-            <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-800">
-              <strong>EPA Action Level:</strong> 4 pCi/L or above requires mitigation.
-              The national average is 1.3 pCi/L. <strong>Many Alaska homes test significantly higher.</strong>
+      {/* WHY IT MATTERS + WHO SHOULD TEST */}
+      <section className="border-t border-white/[0.04] bg-[#040D1A] py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-10">
+          <div className="grid gap-14 md:grid-cols-2">
+            {/* Why it matters */}
+            <div>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">The Risk</p>
+              <h2 className="mb-5 font-display text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold leading-tight text-white">
+                You Can't See It.<br />You Can't Smell It.
+              </h2>
+              <p className="mb-5 text-[14px] leading-relaxed text-slate-400">
+                Radon is a radioactive gas that forms naturally from uranium decay in Alaska's soil and rock. It seeps
+                into homes through foundation cracks, sump pits, and floor gaps — then accumulates silently.
+              </p>
+              <div className="mb-7 rounded-xl border border-red-500/20 bg-red-500/[0.07] p-5">
+                <div className="mb-2 flex items-center gap-2">
+                  <AlertTriangle className="h-4 w-4 text-red-400" />
+                  <p className="text-[13px] font-bold text-red-300">EPA Action Level: 4 pCi/L</p>
+                </div>
+                <p className="text-[13px] leading-relaxed text-slate-400">
+                  Many Alaska homes test significantly higher. The national average is 1.3 pCi/L —
+                  Anchorage-area geology puts homes at elevated risk.
+                </p>
+              </div>
+              <ul className="space-y-2.5">
+                {[
+                  "EPA-approved 48-hour short-term test",
+                  "Accredited laboratory analysis",
+                  "Written report with your pCi/L level",
+                  "Mitigation contractor referrals if elevated",
+                  "Bundle with home inspection — most popular option",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-[14px] text-slate-300">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-[#3B82F6]" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Who should test */}
+            <div className="flex flex-col gap-5">
+              <div>
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">Who Should Test</p>
+                <h2 className="mb-5 font-display text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold leading-tight text-white">
+                  Every Anchorage Home.
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {whoShouldTest.map((item) => (
+                  <div key={item.title} className="rounded-xl border border-white/[0.07] bg-[#07111F] p-5">
+                    <p className="mb-1.5 text-[14px] font-bold text-white">{item.title}</p>
+                    <p className="text-[13px] leading-relaxed text-slate-500">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="rounded-xl border border-[#2563EB]/25 bg-[#2563EB]/[0.07] p-5">
+                <p className="mb-1 text-[13px] font-bold text-white">Home + Radon Bundle</p>
+                <p className="mb-3 text-[12px] leading-relaxed text-slate-400">
+                  Most buyers add radon testing to their home inspection. One call, one appointment.
+                  Larry places the device at inspection start and picks it up 48 hours later.
+                </p>
+                <a
+                  href="tel:+19072233725"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#2563EB] px-5 py-2.5 text-[13px] font-bold text-white shadow-[0_0_20px_rgba(37,99,235,0.30)] transition-all duration-200 hover:bg-[#1d4ed8]"
+                >
+                  <Phone className="h-3.5 w-3.5" /> Call to Bundle — (907) 223-3725
+                </a>
+              </div>
             </div>
           </div>
-          <div>
-            <h2 className="text-2xl font-bold text-[#0F172A] mb-4">Why Alaska Has Higher Risk</h2>
-            <p className="text-[#64748B] leading-relaxed mb-4">
-              Alaska&apos;s geology — particularly around Anchorage, Eagle River, and the Mat-Su Valley — contains
-              elevated uranium concentrations that lead to higher radon gas production.
-            </p>
-            <p className="text-[#64748B] leading-relaxed mb-4">
-              Alaska homes are also tightly sealed for energy efficiency, which reduces ventilation
-              and allows radon to accumulate.
-            </p>
-            <p className="text-[#64748B] leading-relaxed">
-              The Alaska Section of Epidemiology recommends testing all homes — especially below-grade spaces.
-            </p>
-          </div>
         </div>
       </section>
 
-      <section className="bg-[#F9FAFB] py-16">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-[#0F172A] mb-8 text-center">How Radon Testing Works</h2>
-          <div className="grid md:grid-cols-4 gap-5">
-            {[
-              { n: "1", title: "Schedule", body: "Call or request online. We place the test device at the lowest livable level." },
-              { n: "2", title: "48-Hour Test", body: "Short-term testing under closed-house conditions per EPA protocol." },
-              { n: "3", title: "Lab Analysis", body: "Device sent to accredited laboratory for precise measurement." },
-              { n: "4", title: "Written Report", body: "You receive your radon level with mitigation guidance if needed." },
-            ].map((p) => (
-              <div key={p.n} className="card p-5 text-center">
-                <div className="w-10 h-10 bg-[#2563EB] text-white rounded-full flex items-center justify-center font-bold mx-auto mb-3">
-                  {p.n}
+      {/* HOW IT WORKS */}
+      <section className="border-t border-white/[0.04] bg-[#07111F] py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-10">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">Process</p>
+            <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold text-white">
+              How Radon Testing Works
+            </h2>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-4">
+            {steps.map((step, i) => (
+              <div key={step.n} className="relative rounded-xl border border-white/[0.07] bg-[#040D1A] p-6">
+                {i < steps.length - 1 && (
+                  <div className="absolute -right-2.5 top-8 z-10 hidden h-px w-5 bg-gradient-to-r from-[#2563EB]/60 to-transparent md:block" />
+                )}
+                <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-full border border-[#2563EB]/40 bg-[#2563EB]/10 text-[14px] font-bold text-[#60A5FA]">
+                  {step.n}
                 </div>
-                <h3 className="font-bold text-[#0F172A] text-sm mb-2">{p.title}</h3>
-                <p className="text-[#64748B] text-xs leading-relaxed">{p.body}</p>
+                <p className="mb-1.5 text-[14px] font-bold text-white">{step.title}</p>
+                <p className="text-[13px] leading-relaxed text-slate-500">{step.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-[#0F172A] mb-6 text-center">Radon Testing FAQ — Anchorage, AK</h2>
-          <div className="space-y-4">
-            {faqSchema.mainEntity.map((item) => (
-              <div key={item.name} className="card p-5">
-                <h3 className="font-bold text-[#0F172A] text-sm mb-2">{item.name}</h3>
-                <p className="text-[#64748B] text-sm leading-relaxed">{item.acceptedAnswer.text}</p>
-              </div>
-            ))}
+      {/* FAQ */}
+      <section className="border-t border-white/[0.04] bg-[#040D1A] py-24">
+        <div className="mx-auto max-w-3xl px-5 sm:px-10">
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">FAQ</p>
+            <h2 className="font-display text-[clamp(1.8rem,3.5vw,2.4rem)] font-bold text-white">
+              Radon Testing Questions
+            </h2>
           </div>
+          <FaqAccordion items={faqItems} />
         </div>
       </section>
 
-      <section className="bg-[#2563EB] py-14 text-center">
-        <div className="max-w-2xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-white mb-3">Schedule Radon Testing in Anchorage</h2>
-          <p className="text-blue-100 mb-6">Don&apos;t buy or sell without testing. Call now — we respond within 1 business hour.</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <a href="tel:+19072233725" className="bg-white text-[#2563EB] font-bold px-6 py-3 rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-150">
-              Call (907) 223-3725
-            </a>
-            <Link href="/contact" className="border-2 border-white text-white font-bold px-6 py-3 rounded-lg hover:bg-white/10 transition-all duration-150">
-              Book Online →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTA />
     </>
   );
 }

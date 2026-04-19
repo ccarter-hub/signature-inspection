@@ -2,24 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * --ribbon-h: pre-hydration fallback only.
+ * StickyMobileCTA writes the real measured value via ResizeObserver on mount,
+ * overriding these estimates at every breakpoint, zoom level, and font scale.
+ */
+:root {
+  --ribbon-h: 6rem;
+}
+@media (min-width: 768px) {
+  :root {
+    --ribbon-h: 4.25rem;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #F9FAFB;
-  color: #0F172A;
+  background-color: #030912;
+  color: #ffffff;
 }
 
-/* Mobile sticky CTA clearance */
-main {
-  padding-bottom: 5rem;
+/*
+ * Spacer that pushes scrollable content above the fixed ribbon.
+ * A real block element (not padding) so the scroll engine always
+ * includes it in the reachable document height on all browsers.
+ */
+.ribbon-spacer {
+  display: block;
+  /* --ribbon-h is set from the measured element height (already includes any safe-area
+     expansion from the ribbon's own paddingBottom). No env() needed here. */
+  height: calc(var(--ribbon-h) + 0.75rem);
+  pointer-events: none;
 }
-@media (min-width: 768px) {
-  main {
-    padding-bottom: 0;
-  }
+
+/* CTA pulse ring animation */
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.45), 0 0 40px rgba(37,99,235,0.50); }
+  60%       { box-shadow: 0 0 0 7px rgba(37,99,235,0),  0 0 40px rgba(37,99,235,0.50); }
 }
+.cta-ring { animation: cta-pulse 2.8s ease-in-out infinite; }
 
 @layer utilities {
   .btn-primary {

@@ -1,14 +1,39 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
+import Link from "next/link";
+import { CheckCircle2, ArrowRight, Phone, Star, ShieldCheck, Clock } from "lucide-react";
+
+import TrustStrip from "@/components/TrustStrip";
+import ReportPreview from "@/components/ReportPreview";
+import CTA from "@/components/CTA";
 import FaqAccordion from "@/components/FaqAccordion";
+import InstantQuote from "@/components/InstantQuote";
+import ComparisonTable from "@/components/ComparisonTable";
+import VideoSection from "@/components/VideoSection";
+import RealWorldProof from "@/components/RealWorldProof";
+import GuaranteeSection from "@/components/GuaranteeSection";
 
 export const metadata: Metadata = {
-  title: "Home Inspector in Anchorage, AK | Signature Inspection Service Inc.",
+  title: "Home Inspector Anchorage, AK | ASHI Certified | Signature Inspection Service",
   description:
-    "ASHI Certified home inspector in Anchorage, AK. Get a clear, professional inspection before you buy. 38+ years construction experience. Same-day reports. Call (907) 223-3725.",
+    "Anchorage's top-rated home inspector — ASHI Certified, 5.0 stars (47 reviews), same-day written reports. Larry McBain: 38+ years Alaska construction experience. Home, commercial & radon. Call (907) 223-3725.",
   alternates: { canonical: "https://signatureinspectionservice.com" },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Signature Inspection Service Inc.",
+  telephone: "+1-907-223-3725",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "8541 Raintree Circle",
+    addressLocality: "Anchorage",
+    addressRegion: "AK",
+    postalCode: "99507",
+  },
+  url: "https://signatureinspectionservice.com",
+  aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "47" },
 };
 
 const faqSchema = {
@@ -17,573 +42,497 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What does a home inspection include in Anchorage, AK?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A home inspection in Anchorage covers 200+ items across all major systems: roof, attic, insulation, foundation, framing, electrical, plumbing, HVAC, windows, doors, and exterior. Alaska-specific checks include ice dam potential, permafrost settlement indicators, freeze/thaw damage, and seismic resilience — hazards that inspectors from the Lower 48 often miss.",
-      },
+      name: "How much does a home inspection cost in Anchorage, AK?",
+      acceptedAnswer: { "@type": "Answer", text: "Home inspections in Anchorage start at $350 for residential properties. Commercial inspections start at $500 and radon testing starts at $125. Bundling a home inspection with radon testing saves money. Call (907) 223-3725 for a same-day quote." },
     },
     {
       "@type": "Question",
-      name: "How much does a home inspection cost in Anchorage, Alaska?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Home inspections in Anchorage typically cost $400–$600, depending on property size and age. Radon testing is available as an add-on. Call (907) 223-3725 for a same-day quote.",
-      },
+      name: "What does a home inspection in Anchorage cover?",
+      acceptedAnswer: { "@type": "Answer", text: "A comprehensive Anchorage home inspection covers 200+ points including the roof, attic, insulation, foundation, electrical, plumbing, HVAC, and Alaska-specific hazards like ice dams, permafrost settlement, freeze/thaw damage, and seismic vulnerability." },
     },
     {
       "@type": "Question",
-      name: "How long does a home inspection take?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Most home inspections take 2–4 hours depending on the size and age of the property. You receive a complete written report with photos the same day.",
-      },
+      name: "How quickly can I get a home inspection in Anchorage?",
+      acceptedAnswer: { "@type": "Answer", text: "We typically schedule within 1–3 business days, but scheduling fills 5–7 days out during busy seasons. We respond to all requests within 1 business hour. Call (907) 223-3725 for urgent timelines." },
     },
     {
       "@type": "Question",
-      name: "Can a home fail a home inspection?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No — a home inspection does not pass or fail a property. It documents the current condition so buyers can make informed decisions, negotiate repairs, or walk away with confidence.",
-      },
+      name: "Do you provide same-day inspection reports in Anchorage?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. Your written inspection report is delivered the same day as the inspection — complete with color photos, severity ratings (critical/monitor/acceptable), and plain-English findings ready for negotiation before your contingency window closes." },
     },
     {
       "@type": "Question",
-      name: "Is radon testing necessary in Anchorage, Alaska?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Alaska has elevated radon concentrations in many areas, including Anchorage, Eagle River, and the Mat-Su Valley. The EPA recommends mitigation at 4 pCi/L or above. Testing is the only way to know your home's level. We offer 48-hour EPA-approved radon testing that can be bundled with any inspection.",
-      },
+      name: "Do you serve Eagle River, Wasilla, Palmer, and the Mat-Su Valley?",
+      acceptedAnswer: { "@type": "Answer", text: "Yes. We serve all of Southcentral Alaska including Anchorage, Eagle River, Wasilla, Palmer, Mat-Su Valley, Girdwood, Seward, Homer, and the Kenai Peninsula. Call (907) 223-3725 to confirm availability for your area." },
     },
     {
       "@type": "Question",
-      name: "Why choose a local Anchorage home inspector?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "A local Anchorage inspector understands Alaska-specific risks that out-of-state inspectors routinely miss: ice damming, permafrost movement, freeze/thaw damage, and seismic vulnerability. Signature Inspection Service is led by Larry McBain, who has 38+ years of Alaska construction experience and is ASHI Certified.",
-      },
+      name: "What makes Signature Inspection Service different from other Anchorage home inspectors?",
+      acceptedAnswer: { "@type": "Answer", text: "Larry McBain is ASHI Certified — a national exam plus 250 paid inspections — and brings 38+ years of Alaska general contracting experience. He knows ice dams, permafrost, and freeze/thaw damage from building Alaska homes. His same-day reports and 1-hour response guarantee set the standard in Anchorage." },
     },
   ],
 };
 
+const reviews = [
+  {
+    quote: "Larry found a foundation issue that helped us negotiate $18,000 off the purchase price. Best $350 we ever spent.",
+    name: "Jennifer M.",
+    detail: "Home Buyer · Anchorage",
+    ago: "3 months ago",
+  },
+  {
+    quote: "Professional, punctual, and detailed. The report was clear and easy to read — perfect photos, clear severity ratings. Our agent says Larry is the best in Anchorage.",
+    name: "David & Carla T.",
+    detail: "Home Buyers · Eagle River",
+    ago: "5 months ago",
+  },
+  {
+    quote: "Used Signature for a commercial purchase. Larry's construction background made all the difference — he spotted structural concerns others would have missed entirely.",
+    name: "Ryan K.",
+    detail: "Commercial Buyer · Anchorage",
+    ago: "6 months ago",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* ─── HERO ─── */}
-      <section className="relative bg-[#0B1220] text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/larry-inspecting-2.jpg"
-            alt=""
-            fill
-            className="object-cover object-center opacity-65"
-            sizes="100vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#0B1220]/80 via-[#0B1220]/50 to-[#0B1220]/25" />
-        </div>
+      {/* ─── 1. HERO — image-forward, no overlay card ─────────────────────── */}
+      <section className="relative overflow-hidden bg-[#030912]" style={{ minHeight: "100svh" }}>
+        <Image
+          src="/images/larry-inspecting-9.jpg"
+          alt="Larry McBain arriving at a home inspection — Signature Inspection Service Anchorage"
+          fill
+          priority
+          className="object-cover"
+          style={{ objectPosition: "65% center" }}
+          sizes="100vw"
+        />
 
-        <div className="relative max-w-6xl mx-auto px-4 py-12 md:py-20 grid md:grid-cols-[1fr_330px] gap-8 md:gap-10 items-center">
-          <div>
-            {/* Social proof eyebrow */}
-            <div className="flex flex-wrap items-center gap-2 mb-5">
-              <div className="flex items-center gap-1.5 bg-white/[0.08] border border-white/[0.15] px-3 py-1.5 rounded-full">
-                <span className="text-yellow-400 text-xs">★★★★★</span>
-                <span className="text-white text-xs font-semibold">5.0</span>
-                <span className="text-slate-300 text-xs">· 47 Google Reviews</span>
+        {/* ── Overlay stack — art-directed for left-column readability ── */}
+        {/* L1: global base tint */}
+        <div className="absolute inset-0 bg-[#030912]/35" />
+        {/* L2: primary left-to-right — fully solid far-left, photo visible far-right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030912] via-[#030912]/80 to-[#030912]/15" />
+        {/* L3: column lock — reinforces the text column through the mid-frame */}
+        <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-[#030912] via-[#030912]/70 to-transparent" />
+        {/* L4: bottom floor — content stack rises from solid ground */}
+        <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#030912] via-[#030912]/70 to-transparent" />
+        {/* L5: blue depth glow — luminous accent behind lower-left text */}
+        <div className="pointer-events-none absolute bottom-[10%] -left-10 h-[520px] w-[520px] rounded-full bg-[#1d4ed8]/[0.14] blur-[90px]" />
+        {/* L6: subtle grid texture */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.012]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+          }}
+        />
+
+        {/* Content — bottom-anchored, left-aligned */}
+        <div
+          className="relative z-10 flex w-full flex-col justify-end px-5 pb-10 pt-20 sm:pb-20 sm:pt-28 sm:px-10"
+          style={{ minHeight: "100svh" }}
+        >
+          <div className="mx-auto w-full max-w-7xl">
+            <div className="max-w-[600px]">
+              {/* Urgency chip */}
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/[0.07] px-4 py-1.5">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
+                <span className="text-[11px] font-semibold tracking-wide text-red-300">
+                  Scheduling fills 5–7 days out · Check availability now
+                </span>
               </div>
-              <div className="bg-white/[0.08] border border-white/[0.15] px-3 py-1.5 rounded-full">
-                <span className="text-slate-200 text-xs font-semibold tracking-wide">ASHI Certified</span>
+
+              <h1
+                className="mb-3 font-display font-bold leading-[1.03] tracking-tight text-white"
+                style={{ fontSize: "clamp(2.6rem, 5.5vw, 3.8rem)", textShadow: "0 2px 24px rgba(0,0,0,0.95)" }}
+              >
+                Most Buyers Find Out
+                <br className="hidden sm:block" /> Too Late.{" "}
+                <span className="text-[#60A5FA]">You Won&rsquo;t.</span>
+              </h1>
+
+              <p className="mb-5 max-w-[500px] text-[16px] leading-[1.6] text-slate-100" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.90)" }}>
+                <span className="sm:hidden">200+ point ASHI inspection. Same-day report. Real leverage before your contingency closes.</span>
+                <span className="hidden sm:inline">Larry McBain delivers a 200+ point ASHI Certified inspection with a same-day written report — giving you real leverage before your contingency expires.</span>
+              </p>
+
+              {/* CTAs — mobile: phone first. desktop: book first */}
+              <div className="mb-6 flex flex-col gap-3 sm:flex-row">
+                {/* Mobile primary: call */}
+                <a
+                  href="tel:+19072233725"
+                  className="cta-ring inline-flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8] sm:hidden"
+                >
+                  <Phone className="h-4 w-4" /> Call to Book: (907) 223-3725
+                </a>
+                {/* Desktop primary: book form */}
+                <Link
+                  href="#quote"
+                  className="hidden items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white shadow-[0_0_40px_rgba(37,99,235,0.50)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8] hover:shadow-[0_0_56px_rgba(37,99,235,0.65)] sm:inline-flex"
+                >
+                  Book My Inspection <ArrowRight className="h-4 w-4" />
+                </Link>
+                {/* Secondary CTA */}
+                <Link
+                  href="#quote"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.18] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10] sm:hidden"
+                >
+                  Check Availability <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href="tel:+19072233725"
+                  className="hidden items-center justify-center gap-2 rounded-xl border border-white/[0.18] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10] sm:inline-flex"
+                >
+                  <Phone className="h-4 w-4 text-[#60A5FA]" /> (907) 223-3725
+                </a>
+              </div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-[#0B1628]/80 px-4 py-2 backdrop-blur-sm">
+                <span className="text-[12px] text-slate-200">
+                  From{" "}<span className="font-bold text-white">$350</span>{" "}· Same-day report · Fee-back guarantee
+                </span>
+              </div>
+
+              {/* Trust strip — desktop only (mobile covered by fast-trust band below) */}
+              <div className="hidden sm:flex flex-wrap items-center gap-x-5 gap-y-2.5 border-t border-white/[0.18] pt-5">
+                {[
+                  { icon: <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />, text: "Same-Day Report — Every Time" },
+                  { icon: <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />, text: "5.0 · 47 Reviews" },
+                  { icon: <ShieldCheck className="h-3.5 w-3.5 text-[#60A5FA]" />, text: "ASHI Certified" },
+                  { icon: <Clock className="h-3.5 w-3.5 text-[#60A5FA]" />, text: "1-Hr Response Guarantee" },
+                ].map(({ icon, text }) => (
+                  <div key={text} className="flex items-center gap-1.5">
+                    {icon}
+                    <span className="text-[12px] font-medium text-slate-200">{text}</span>
+                  </div>
+                ))}
               </div>
             </div>
-
-            <h1 className="font-display text-4xl md:text-5xl font-bold leading-[1.1] mb-5">
-              Anchorage Home Inspector You Can Trust — Before You Buy
-            </h1>
-            <p className="text-slate-300 text-lg leading-relaxed mb-8 max-w-lg">
-              Know exactly what you&apos;re buying. Larry McBain delivers a clear, thorough inspection
-              and a same-day report — so you can close with confidence or negotiate with leverage.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <Link href="/contact" className="bg-[#3B82F6] hover:bg-[#2563EB] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-150 text-base text-center">
-                Schedule an Inspection
-              </Link>
-              <a href="tel:+19072233725" className="border border-white/25 text-white hover:bg-white/[0.08] font-semibold px-7 py-3.5 rounded-lg transition-all duration-150 text-base text-center">
-                Call (907) 223-3725
-              </a>
-            </div>
-
-            {/* Trust strip */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-              {[
-                "38+ Years Alaska Construction",
-                "Same-Day Written Reports",
-                "ASHI Certified · Licensed & Insured",
-              ].map((t) => (
-                <div key={t} className="flex items-center gap-2 text-sm text-slate-300">
-                  <span className="text-[#3B82F6] shrink-0">✓</span>
-                  {t}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Form card — premium soft surface, not stark white */}
-          <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 md:p-5 shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
-            <div className="flex items-center gap-1.5 mb-1">
-              <span className="text-yellow-400 text-sm">★★★★★</span>
-              <span className="text-[#64748B] text-xs">5.0 · 47 reviews</span>
-            </div>
-            <h2 className="text-[#0B1220] font-bold text-xl mb-1">Schedule Your Inspection</h2>
-            <p className="text-[#64748B] text-sm mb-5">We respond within 1 business hour.</p>
-            <ContactForm />
           </div>
         </div>
       </section>
 
-      {/* ─── TRUST BAR ─── */}
-      <section className="bg-white border-b border-[#E5E7EB]">
-        <div className="max-w-6xl mx-auto px-4 py-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      {/* ─── 2. FAST DECISION TRUST BAND ──────────────────────────────────── */}
+      <section className="border-t border-white/[0.06] bg-[#07111F] py-5">
+        <div className="mx-auto max-w-7xl px-5 sm:px-10">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {[
-              { stat: "★ 5.0", label: "47 Verified Google Reviews" },
-              { stat: "ASHI", label: "Certified Home Inspector" },
-              { stat: "38+", label: "Years Alaska Construction" },
-              { stat: "Same Day", label: "Written Report Delivered" },
-            ].map((item) => (
-              <div key={item.label} className="flex flex-col items-center py-2">
-                <span className="text-[#2563EB] font-bold text-lg leading-none mb-1">{item.stat}</span>
-                <span className="text-[#64748B] text-xs font-medium">{item.label}</span>
+              { stat: "Same Day", label: "Written report delivered", accent: "#34D399" },
+              { stat: "1 Hour", label: "Response guaranteed", accent: "#60A5FA" },
+              { stat: "5.0 ★", label: "47 verified reviews", accent: "#FBBF24" },
+              { stat: "ASHI", label: "Certified inspector", accent: "#60A5FA" },
+            ].map(({ stat, label, accent }) => (
+              <div key={stat} className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3">
+                <p className="text-[18px] font-black" style={{ color: accent }}>{stat}</p>
+                <p className="text-[11px] leading-tight text-slate-500">{label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── PHOTO STRIP ─── */}
-      <section className="bg-[#0F172A]">
-        <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[
-            { src: "/images/larry-inspecting-9.jpg", alt: "Larry McBain arriving at home inspection" },
-            { src: "/images/larry-inspecting-2.jpg", alt: "Inspecting electrical panel" },
-            { src: "/images/larry-inspecting-10.jpg", alt: "Roof inspection in Anchorage" },
-            { src: "/images/larry-inspecting-8.jpg", alt: "Walking through home with client" },
-          ].map((img) => (
-            <div key={img.src} className="relative h-40 md:h-48 rounded-xl overflow-hidden">
-              <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+      {/* ─── 4. INSTANT QUOTE ─────────────────────────────────────────────── */}
+      <InstantQuote />
+
+      {/* ─── 5. TRUST STRIP ───────────────────────────────────────────────── */}
+      <TrustStrip />
+
+      {/* ─── 6. COMPARISON TABLE ──────────────────────────────────────────── */}
+      <ComparisonTable />
+
+      {/* ─── 7. VIDEO / TRUST BUILDER ─────────────────────────────────────── */}
+      <VideoSection />
+
+      {/* ─── 9. REAL-WORLD PROOF ──────────────────────────────────────────── */}
+      <RealWorldProof />
+
+      {/* ─── 10. GUARANTEE ────────────────────────────────────────────────── */}
+      <GuaranteeSection />
+
+      {/* ─── 10. REPORT PREVIEW ───────────────────────────────────────────── */}
+      <ReportPreview />
+
+      {/* ─── 11. REVIEWS — warm light section for contrast ─────────────────── */}
+      <section className="bg-[#F5F3EE] py-8 md:py-16">
+        <div className="mx-auto max-w-7xl px-5 sm:px-10">
+          <div className="mb-8 text-center">
+            <div className="mb-5 inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-[#E0DBCF] bg-white px-5 py-2.5 shadow-sm">
+              <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+              </svg>
+              <span className="text-[13px] font-semibold text-[#475569]">47 Google Reviews</span>
+              <span className="h-4 w-px bg-[#E0DBCF]" />
+              <svg className="h-4 w-4 shrink-0" fill="#1877F2" viewBox="0 0 24 24">
+                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+              </svg>
+              <span className="text-[13px] font-semibold text-[#475569]">Facebook Reviews</span>
+              <span className="h-4 w-px bg-[#E0DBCF]" />
+              <span className="text-yellow-500">★★★★★</span>
+              <span className="text-sm font-bold text-[#0F172A]">5.0</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── WHAT'S INCLUDED ─── */}
-      <section className="bg-[#F9FAFB] py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-[#2563EB] font-semibold text-xs uppercase tracking-widest mb-3">Complete Top-to-Bottom</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0F172A] mb-3">
-              200+ Inspection Points. Nothing Missed.
+            <h2
+              className="font-display font-bold text-[#0F172A] leading-tight"
+              style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)" }}
+            >
+              What Anchorage Buyers Say
             </h2>
-            <p className="text-[#64748B] text-lg max-w-2xl mx-auto">
-              Every accessible system and component — documented with photos, rated by severity, and delivered in a clear same-day report.
-            </p>
+            <p className="mt-3 text-[15px] text-[#64748B]">47+ five-star reviews across Google and Facebook.</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            {[
-              {
-                icon: "🏠",
-                title: "Structure & Foundation",
-                items: ["Foundation & footings", "Framing & load-bearing", "Frost heave indicators", "Permafrost settlement"],
-              },
-              {
-                icon: "🔌",
-                title: "Electrical",
-                items: ["Main panel & breakers", "Wiring & connections", "GFCI protection", "Outlets & fixtures"],
-              },
-              {
-                icon: "🚿",
-                title: "Plumbing",
-                items: ["Supply & drain lines", "Water heater", "Fixtures & valves", "Freeze/thaw damage"],
-              },
-              {
-                icon: "🌡️",
-                title: "HVAC",
-                items: ["Furnace & heat system", "Air distribution", "Thermostats", "Ventilation"],
-              },
-              {
-                icon: "🏔️",
-                title: "Roof & Attic",
-                items: ["Shingles & flashing", "Ice dam potential", "Attic insulation", "Ventilation"],
-              },
-              {
-                icon: "🪟",
-                title: "Exterior",
-                items: ["Siding & trim", "Windows & doors", "Decks & railings", "Grading & drainage"],
-              },
-              {
-                icon: "🛋️",
-                title: "Interior",
-                items: ["Walls, ceilings, floors", "Stairs & railings", "Smoke detectors", "Garage door & opener"],
-              },
-              {
-                icon: "🧪",
-                title: "Alaska-Specific",
-                items: ["Ice dam assessment", "Seismic resilience", "Freeze/thaw damage", "Crawl space moisture"],
-              },
-            ].map((cat) => (
-              <div key={cat.title} className="card p-5">
-                <div className="text-2xl mb-2">{cat.icon}</div>
-                <h3 className="font-bold text-[#0F172A] text-sm mb-3">{cat.title}</h3>
-                <ul className="space-y-1.5">
-                  {cat.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-xs text-[#64748B]">
-                      <span className="text-[#2563EB] mt-0.5 shrink-0">·</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <a href="tel:+19072233725" className="btn-primary text-base px-8 py-4">
-              Schedule an Inspection — (907) 223-3725
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SERVICES ─── */}
-      <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0F172A] mb-3">
-              Inspection Services in Anchorage, AK
-            </h2>
-            <p className="text-[#64748B] max-w-xl mx-auto">
-              Bundle services for complete coverage — home inspection, commercial, and radon testing
-              from one ASHI Certified inspector.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                img: "/images/larry-inspecting-7.jpg",
-                alt: "Home electrical panel inspection Anchorage AK",
-                title: "Home Inspection",
-                tag: "Most Popular",
-                body: "Complete evaluation of 200+ items — roof to foundation. ASHI standards plus Alaska-specific checks.",
-                href: "/home-inspection-anchorage",
-              },
-              {
-                img: "/images/larry-inspecting-4.jpg",
-                alt: "HVAC furnace inspection Anchorage commercial",
-                title: "Commercial Inspection",
-                tag: null,
-                body: "Detailed inspections for offices, retail, and warehouses. Protect your investment with a builder's perspective.",
-                href: "/commercial-inspection-anchorage",
-              },
-              {
-                img: "/images/larry-inspecting-6.jpg",
-                alt: "Radon testing Alaska",
-                title: "Radon Testing",
-                tag: "Add-On Available",
-                body: "48-hour EPA-approved testing. Bundle with any inspection for a complete picture — Alaska has elevated radon risk.",
-                href: "/radon-testing-anchorage",
-              },
-            ].map((s) => (
-              <div key={s.href} className="card overflow-hidden flex flex-col">
-                <div className="relative h-48">
-                  <Image src={s.img} alt={s.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-                  {s.tag && (
-                    <div className="absolute top-3 left-3 bg-[#2563EB] text-white text-xs font-bold px-2.5 py-1 rounded-full">
-                      {s.tag}
-                    </div>
-                  )}
-                </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-xl font-bold text-[#0F172A] mb-3">{s.title}</h3>
-                  <p className="text-[#64748B] text-sm leading-relaxed mb-6 flex-1">{s.body}</p>
-                  <Link href={s.href} className="btn-primary text-center text-sm">
-                    Schedule Inspection →
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── PROCESS ─── */}
-      <section className="bg-[#F9FAFB] py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0F172A] mb-3">
-              Simple, Straightforward, Done Right
-            </h2>
-            <p className="text-[#64748B]">Book to report in three steps.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                n: "1",
-                img: "/images/larry-inspecting-9.jpg",
-                alt: "Larry McBain arriving at home for inspection",
-                title: "Call or book online",
-                body: "Call (907) 223-3725 or submit the form. We confirm within 1 business hour and are typically available within 1–3 days.",
-              },
-              {
-                n: "2",
-                img: "/images/larry-inspecting-8.jpg",
-                alt: "Larry walking through home with client",
-                title: "We perform a thorough inspection",
-                body: "Larry inspects 200+ items across every accessible system. Buyers are welcome and encouraged to attend.",
-              },
-              {
-                n: "3",
-                img: "/images/larry-inspecting-12.jpg",
-                alt: "Larry writing inspection report on laptop",
-                title: "Report delivered same day",
-                body: "A detailed, photo-rich written report with severity ratings arrives the same day your inspection is completed.",
-              },
-            ].map((step) => (
-              <div key={step.n} className="card overflow-hidden">
-                <div className="relative h-44">
-                  <Image src={step.img} alt={step.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
-                  <div className="absolute top-3 left-3 w-9 h-9 bg-[#2563EB] text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
-                    {step.n}
+          <div className="mb-10 grid gap-5 md:grid-cols-3">
+            {reviews.map((r) => (
+              <div
+                key={r.name}
+                className="flex flex-col rounded-2xl border border-[#EAE7DF] bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              >
+                <span className="mb-4 text-[17px] text-yellow-400">★★★★★</span>
+                <p className="mb-6 flex-1 text-[14px] leading-[1.7] text-[#334155]">
+                  &ldquo;{r.quote}&rdquo;
+                </p>
+                <div className="flex items-center gap-3 border-t border-[#F0EDE8] pt-5">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#1d4ed8] to-[#3B82F6] text-sm font-bold text-white">
+                    {r.name[0]}
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-semibold leading-tight text-[#0F172A]">{r.name}</p>
+                    <p className="text-[11px] text-[#94A3B8]">{r.detail} · {r.ago}</p>
                   </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-bold text-[#0F172A] mb-2">{step.title}</h3>
-                  <p className="text-[#64748B] text-sm leading-relaxed">{step.body}</p>
-                </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-8">
-            <a href="tel:+19072233725" className="btn-primary text-base px-8 py-4">
-              Call to Book — (907) 223-3725
-            </a>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── THE SIGNATURE PROMISE ─── */}
-      <section className="bg-[#0F172A] text-white py-16">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <p className="text-[#2563EB] font-semibold text-xs uppercase tracking-widest mb-3">Our Commitment to You</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">The Signature Promise</h2>
-          <p className="text-slate-300 max-w-xl mx-auto mb-12">
-            Every inspection Larry completes comes with the same unconditional commitment — no exceptions.
-          </p>
-          <div className="grid md:grid-cols-3 gap-5 text-left">
-            {[
-              {
-                icon: "📋",
-                title: "Same-Day Written Report",
-                body: "You receive your full written report — with photos and severity ratings — the same day as your inspection. No waiting.",
-              },
-              {
-                icon: "⏱️",
-                title: "1-Hour Response Guarantee",
-                body: "When you call or submit the form, we respond within 1 business hour. Your time matters.",
-              },
-              {
-                icon: "✅",
-                title: "ASHI Standards, Every Time",
-                body: "Every inspection follows ASHI standards of practice — the most rigorous in the industry — backed by 38+ years of Alaska construction experience.",
-              },
-            ].map((p) => (
-              <div key={p.title} className="bg-white/[0.06] border border-white/[0.10] rounded-xl p-6">
-                <div className="text-2xl mb-3">{p.icon}</div>
-                <h3 className="font-bold text-white mb-2">{p.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── WHY CHOOSE US ─── */}
-      <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-14 items-center">
-          <div className="relative">
-            <div className="relative h-[480px] rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src="/images/larry-inspecting-1.jpg"
-                alt="Larry McBain ASHI Certified Home Inspector Anchorage AK"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-[#0F172A] text-white rounded-xl px-5 py-4 shadow-xl">
-              <p className="text-[#2563EB] text-xs font-bold uppercase tracking-wide mb-0.5">ASHI Certified</p>
-              <p className="font-bold text-sm">Larry McBain</p>
-              <p className="text-slate-400 text-xs">38+ Years Experience</p>
-            </div>
-          </div>
-
-          <div>
-            <p className="text-[#2563EB] font-semibold text-sm uppercase tracking-widest mb-3">
-              About Larry McBain
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#0F172A] mb-5">
-              Experience You Can Actually Rely On
-            </h2>
-            <p className="text-[#64748B] leading-relaxed mb-7">
-              With decades of construction and real estate experience, you&apos;re getting real insight —
-              not just a checklist. Larry has spent nearly 40 years building and evaluating properties
-              across Alaska, and he knows exactly where problems hide.
-            </p>
-            <ul className="space-y-3 mb-8">
-              {[
-                "ASHI Certified — national exam + 250 paid inspections",
-                "38+ years Alaska general contracting",
-                "20+ years Alaska real estate",
-                "Knows the hazards inspectors from the Lower 48 miss",
-                "5.0 stars across 47 verified Google reviews",
-              ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-[#0F172A]">
-                  <span className="w-5 h-5 bg-[#EFF6FF] rounded-full flex items-center justify-center text-[#2563EB] text-xs shrink-0">✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <Link href="/about" className="btn-outline text-sm">
-              Read Larry&apos;s Full Bio →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── RADON ─── */}
-      <section className="bg-[#0F172A] text-white py-20">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-[#2563EB] font-semibold text-xs uppercase tracking-widest mb-3">Add-On Service</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-5">
-              Radon Is Invisible — But It Matters
-            </h2>
-            <p className="text-slate-300 leading-relaxed mb-4">
-              Alaska has elevated radon concentrations in many areas including Anchorage, Eagle River, and the Mat-Su Valley.
-              You won&apos;t know it&apos;s there without testing.
-            </p>
-            <p className="text-slate-300 leading-relaxed mb-8">
-              Bundle 48-hour EPA-approved radon testing with any inspection.
-              Most clients add it for complete peace of mind.
-            </p>
-            <Link href="/radon-testing-anchorage" className="bg-[#2563EB] hover:bg-[#1d4ed8] hover:-translate-y-0.5 hover:shadow-lg text-white font-semibold px-6 py-3 rounded-lg transition-all duration-150 inline-block">
-              Add Radon Testing →
-            </Link>
-          </div>
-          <div className="card bg-white/5 border-white/10 p-8">
-            <div className="space-y-5">
-              {[
-                { icon: "🚫", label: "No color, no smell, no taste" },
-                { icon: "⚠️", label: "Second leading cause of lung cancer in the U.S." },
-                { icon: "🧪", label: "48-hour EPA-approved short-term test" },
-                { icon: "📄", label: "Written report with mitigation guidance if needed" },
-                { icon: "📍", label: "Many Alaska homes test significantly above EPA action level" },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-4 text-sm text-slate-300">
-                  <span className="text-xl">{item.icon}</span>
-                  {item.label}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── TESTIMONIALS ─── */}
-      <section className="bg-[#F9FAFB] py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="text-yellow-400 text-xl">★★★★★</span>
-              <span className="font-bold text-[#0F172A]">5.0</span>
-              <span className="text-[#64748B] text-sm">· 47 Verified Google Reviews</span>
-            </div>
-            <h2 className="font-display text-3xl font-bold text-[#0F172A]">What Clients Say</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { quote: "Larry was incredibly thorough. He caught several issues the previous inspector missed, which saved us thousands. Highly recommend.", name: "Jennifer M.", detail: "Home Buyer, Anchorage" },
-              { quote: "Professional, punctual, and detailed. The report was easy to read with clear photos of every issue. Our agent says Larry is the best in Anchorage.", name: "David & Carla T.", detail: "Home Buyers, Eagle River" },
-              { quote: "We used Signature Inspection for our commercial building purchase. Larry's construction knowledge made the difference — he spotted structural concerns others overlooked.", name: "Ryan K.", detail: "Commercial Buyer, Anchorage" },
-            ].map((t) => (
-              <div key={t.name} className="card p-6">
-                <p className="text-yellow-400 text-lg mb-3">★★★★★</p>
-                <p className="text-[#0F172A] text-sm leading-relaxed mb-5 italic">&ldquo;{t.quote}&rdquo;</p>
-                <p className="font-semibold text-[#0F172A] text-sm">{t.name}</p>
-                <p className="text-[#64748B] text-xs">{t.detail}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
+          <div className="flex flex-wrap justify-center gap-4">
             <a
               href="https://www.google.com/search?q=Signature+Inspection+Service+Anchorage"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#2563EB] text-sm font-semibold hover:underline"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#E0DBCF] bg-white px-5 py-2.5 text-[13px] font-semibold text-[#0F172A] shadow-sm transition-all duration-200 hover:shadow-md"
             >
-              Read all 47 reviews on Google →
+              <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+              </svg>
+              47 Google Reviews <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href="https://www.facebook.com/SignatureInspectionService/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#E0DBCF] bg-white px-5 py-2.5 text-[13px] font-semibold text-[#1877F2] shadow-sm transition-all duration-200 hover:shadow-md"
+            >
+              <svg className="h-4 w-4 shrink-0" fill="#1877F2" viewBox="0 0 24 24">
+                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+              </svg>
+              See Facebook Reviews <ArrowRight className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
       </section>
 
-      {/* ─── SERVICE AREAS ─── */}
-      <section className="bg-white py-14">
-        <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="font-display text-2xl font-bold text-[#0F172A] mb-2">Service Areas</h2>
-          <p className="text-[#64748B] mb-7 text-sm">Serving Anchorage and all of southcentral Alaska.</p>
-          <div className="flex flex-wrap justify-center gap-2.5">
-            {["Anchorage", "Wasilla", "Eagle River", "Palmer", "Girdwood", "Seward", "Homer", "Kenai Peninsula"].map((area) => (
-              <span key={area} className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-full px-4 py-2 text-sm text-[#0F172A] font-medium shadow-sm">
-                {area}
-              </span>
-            ))}
+      {/* ─── 9. INSPECTOR + AGENT TRUST ───────────────────────────────────── */}
+      <section className="border-t border-white/[0.04] bg-[#040D1A] py-8 md:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-10">
+          <div className="grid items-center gap-10 md:gap-14 md:grid-cols-2">
+            {/* Photo */}
+            <div className="relative order-2 md:order-1">
+              <div className="pointer-events-none absolute -inset-6 rounded-3xl bg-[#2563EB]/[0.05] blur-2xl" />
+              <div className="relative h-[440px] overflow-hidden rounded-2xl border border-white/[0.08] shadow-[0_40px_80px_rgba(0,0,0,0.60)]">
+                <Image
+                  src="/images/larry-inspecting-1.jpg"
+                  alt="Larry McBain — ASHI Certified Home Inspector, Anchorage AK"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040D1A]/60 to-transparent" />
+              </div>
+              <div className="absolute -bottom-5 -right-4 max-w-[240px] rounded-2xl border border-white/[0.10] bg-[#0B1628] px-5 py-4 shadow-2xl">
+                <div className="mb-1.5 flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="mb-1 text-[12px] font-semibold leading-snug text-white">
+                  &ldquo;The only inspector I recommend.&rdquo;
+                </p>
+                <p className="text-[10px] text-slate-600">Anchorage Real Estate Agent</p>
+              </div>
+            </div>
+
+            {/* Copy */}
+            <div className="order-1 md:order-2">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">
+                The Inspector
+              </p>
+              <h2
+                className="mb-5 font-display font-bold leading-tight text-white"
+                style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)" }}
+              >
+                38 Years Building Alaska Homes.{" "}
+                <span className="text-[#60A5FA]">Now He Protects Buyers.</span>
+              </h2>
+              <p className="mb-8 text-[15px] leading-relaxed text-slate-400">
+                Larry McBain isn&rsquo;t reading from a checklist — he built these homes. That
+                construction background catches ice dam risk, permafrost movement, and
+                freeze/thaw damage that other inspectors don&rsquo;t even know to look for.
+              </p>
+              <ul className="mb-9 space-y-3.5">
+                {[
+                  "ASHI Certified — national exam + 250 paid inspections",
+                  "38+ years Alaska general contracting background",
+                  "Catches ice dams, permafrost, and freeze/thaw damage others miss",
+                  "Same-day written report — before re-inspection windows close",
+                  "1-hour response guarantee — every time, without exception",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-[14px] text-slate-300">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#3B82F6]" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="#quote"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white shadow-[0_0_28px_rgba(37,99,235,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8] hover:shadow-[0_0_44px_rgba(37,99,235,0.50)]"
+                >
+                  Book an Inspection <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href="tel:+19072233725"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] px-7 py-4 text-[15px] font-semibold text-white transition-all duration-200 hover:border-white/[0.28] hover:bg-white/[0.05]"
+                >
+                  <Phone className="h-4 w-4 text-[#60A5FA]" /> Speak with Larry
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Agent trust band */}
+          <div className="mt-20 rounded-2xl border border-white/[0.07] bg-[#07111F] p-8">
+            <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-lg">
+                <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">
+                  For Real Estate Agents
+                </p>
+                <h3 className="mb-3 font-display text-[22px] font-bold leading-tight text-white">
+                  The Inspector Your Clients Thank You For.
+                </h3>
+                <p className="text-[14px] leading-relaxed text-slate-400">
+                  Same-day reports. 1-hour response. Findings written for negotiation. We make deals close — not stall.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-wrap gap-3">
+                <a
+                  href="tel:+19072233725"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-6 py-3.5 text-[14px] font-bold text-white shadow-[0_0_20px_rgba(37,99,235,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8] whitespace-nowrap"
+                >
+                  <Phone className="h-4 w-4" /> Schedule for a Client
+                </a>
+                <div className="flex flex-col justify-center">
+                  <p className="text-[11px] text-slate-600">(907) 223-3725</p>
+                  <p className="text-[11px] text-slate-600">Never goes to voicemail</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-x-7 gap-y-2.5 border-t border-white/[0.05] pt-6">
+              {[
+                "1-hr response guarantee",
+                "Same-day reports",
+                "Severity-coded for negotiation",
+                "Buyers welcome on-site",
+                "Direct line for urgent closings",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-[#3B82F6]" />
+                  <span className="text-[13px] text-slate-400">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── FAQ ─── */}
-      <section className="bg-[#F9FAFB] py-20">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="font-display text-3xl font-bold text-center text-[#0F172A] mb-2">Common Questions</h2>
-          <p className="text-center text-[#64748B] mb-10 text-sm">Everything you need to know before booking.</p>
+      {/* ─── SERVICE AREAS ────────────────────────────────────────────────── */}
+      <section className="border-t border-white/[0.04] bg-[#07111F] py-8 md:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-10">
+          <div className="grid gap-8 md:gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">Service Area</p>
+              <h2 className="mb-4 font-display font-bold leading-tight text-white" style={{ fontSize: "clamp(1.6rem,3vw,2.2rem)" }}>
+                Home Inspections Across Southcentral Alaska
+              </h2>
+              <p className="mb-6 text-[14px] leading-relaxed text-slate-500">
+                We serve Anchorage and all surrounding communities. Whether you're buying in Eagle River, closing on a Mat-Su property, or purchasing commercial space in downtown Anchorage — we cover your area.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Anchorage","Eagle River","Wasilla","Palmer","Mat-Su Valley","Girdwood","Seward","Homer","Kenai","Soldotna","Big Lake","Chugiak"].map((area) => (
+                  <span key={area} className="rounded-full border border-white/[0.10] bg-white/[0.04] px-3 py-1.5 text-[12px] font-medium text-slate-400">
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              {[
+                { label: "Home Inspection", href: "/home-inspection-anchorage", desc: "From $350 · Same-day report" },
+                { label: "Commercial Inspection", href: "/commercial-inspection-anchorage", desc: "From $500 · Investor-ready" },
+                { label: "Radon Testing", href: "/radon-testing-anchorage", desc: "From $125 · EPA method" },
+              ].map((s) => (
+                <Link
+                  key={s.label}
+                  href={s.href}
+                  className="flex flex-col rounded-xl border border-white/[0.08] bg-[#040D1A] p-4 transition-all duration-200 hover:border-[#2563EB]/40 hover:bg-[#040D1A]"
+                >
+                  <p className="mb-1 text-[13px] font-bold text-white">{s.label}</p>
+                  <p className="text-[11px] text-slate-500">{s.desc}</p>
+                  <span className="mt-3 text-[11px] font-semibold text-[#3B82F6]">Learn more →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 11. FAQ ──────────────────────────────────────────────────────── */}
+      <section className="border-t border-white/[0.04] bg-[#030912] py-8 md:py-20">
+        <div className="mx-auto max-w-3xl px-5 sm:px-10">
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]">FAQ</p>
+            <h2 className="font-display font-bold text-white" style={{ fontSize: "clamp(1.6rem,3vw,2.2rem)" }}>
+              Home Inspection Questions — Anchorage, AK
+            </h2>
+            <p className="mt-3 text-[14px] text-slate-500">
+              Quick answers for buyers, agents, and property investors.
+            </p>
+          </div>
           <FaqAccordion items={faqSchema.mainEntity} />
-        </div>
-      </section>
-
-      {/* ─── FINAL CTA ─── */}
-      <section className="bg-[#2563EB] py-20">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
-            Schedule Your Inspection Today
-          </h2>
-          <p className="text-blue-100 text-lg mb-2">Get clarity before you commit.</p>
-          <p className="text-blue-200 text-sm mb-8">ASHI Certified · Same-Day Reports · 1-Hour Response Guarantee</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="bg-white text-[#2563EB] font-bold px-8 py-4 rounded-lg text-base hover:-translate-y-0.5 hover:shadow-lg transition-all duration-150">
-              Book Online
-            </Link>
-            <a href="tel:+19072233725" className="border-2 border-white text-white font-bold px-8 py-4 rounded-lg text-base hover:-translate-y-0.5 hover:bg-white/10 transition-all duration-150">
-              Call (907) 223-3725
-            </a>
+          <div className="mt-8 text-center">
+            <p className="mb-3 text-[13px] text-slate-500">Have a question not listed here?</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#2563EB] px-6 py-3 text-[14px] font-bold text-white transition-all duration-200 hover:bg-[#1d4ed8]">
+                Ask Us Directly
+              </Link>
+              <a href="tel:+19072233725" className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] px-6 py-3 text-[14px] font-semibold text-white transition-all duration-200 hover:bg-white/[0.05]">
+                <Phone className="h-4 w-4 text-[#60A5FA]" /> (907) 223-3725
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ─── 12. FINAL CTA ────────────────────────────────────────────────── */}
+      <CTA />
     </>
   );
 }

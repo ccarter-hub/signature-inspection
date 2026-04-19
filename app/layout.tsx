@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import SocialProofToast from "@/components/SocialProofToast";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,6 +44,25 @@ export const metadata: Metadata = {
     title: "Home Inspector in Anchorage, AK | Signature Inspection Service Inc.",
     description:
       "ASHI Certified home inspectors in Anchorage, AK. Residential, commercial, and radon testing. 38+ years experience. Call (907) 223-3725.",
+    images: [
+      {
+        url: "/images/larry-inspecting-9.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Larry McBain — ASHI Certified Home Inspector, Anchorage AK",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Home Inspector in Anchorage, AK | Signature Inspection Service Inc.",
+    description:
+      "ASHI Certified home inspectors in Anchorage, AK. Same-day reports, 38+ years experience. Call (907) 223-3725.",
+    images: ["/images/larry-inspecting-9.jpg"],
+  },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
   },
   robots: { index: true, follow: true },
   alternates: {
@@ -102,6 +123,23 @@ const localBusinessSchema = {
     bestRating: "5",
   },
   priceRange: "$$",
+  knowsAbout: [
+    "Home Inspection",
+    "Commercial Building Inspection",
+    "Radon Testing",
+    "Ice Dam Inspection",
+    "Permafrost Settlement",
+    "Alaska Construction",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Inspection Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Home Inspection Anchorage AK" }, priceSpecification: { "@type": "PriceSpecification", price: "350", priceCurrency: "USD" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Building Inspection Anchorage AK" }, priceSpecification: { "@type": "PriceSpecification", price: "500", priceCurrency: "USD" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Radon Testing Anchorage AK" }, priceSpecification: { "@type": "PriceSpecification", price: "125", priceCurrency: "USD" } },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -112,10 +150,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[999] focus:rounded-lg focus:bg-[#2563EB] focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-white"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
+        <div aria-hidden="true" className="ribbon-spacer" />
         <StickyMobileCTA />
+        <SocialProofToast />
+        <Analytics />
       </body>
     </html>
   );
