@@ -107,31 +107,29 @@ export default function HomePage() {
           alt="Larry McBain arriving at a home inspection — Signature Inspection Service Anchorage"
           fill
           priority
-          className="object-cover"
+          className="object-cover hero-drift"
           style={{ objectPosition: "65% center" }}
           sizes="100vw"
         />
 
-        {/* ── Overlay stack — art-directed for left-column readability ── */}
-        {/* L1: global base tint */}
-        <div className="absolute inset-0 bg-[#030912]/35" />
-        {/* L2: primary left-to-right — fully solid far-left, photo visible far-right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030912] via-[#030912]/80 to-[#030912]/15" />
-        {/* L3: column lock — reinforces the text column through the mid-frame */}
-        <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-[#030912] via-[#030912]/70 to-transparent" />
-        {/* L4: bottom floor — content stack rises from solid ground */}
-        <div className="absolute inset-x-0 bottom-0 h-80 bg-gradient-to-t from-[#030912] via-[#030912]/70 to-transparent" />
-        {/* L5: blue depth glow — luminous accent behind lower-left text */}
-        <div className="pointer-events-none absolute bottom-[10%] -left-10 h-[520px] w-[520px] rounded-full bg-[#1d4ed8]/[0.14] blur-[90px]" />
-        {/* L6: subtle grid texture */}
+        {/* ── Overlay stack — cinematic art direction ── */}
+        {/* L1: base tint — lighter so right-side photo breathes */}
+        <div className="absolute inset-0 bg-[#030912]/28" />
+        {/* L2: primary left-to-right — solid left edge, opens toward Larry */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030912] via-[#030912]/78 to-[#030912]/08" />
+        {/* L3: column lock — holds text zone legible through mid-frame */}
+        <div className="absolute inset-y-0 left-0 w-[52%] bg-gradient-to-r from-[#030912] via-[#030912]/65 to-transparent" />
+        {/* L4: bottom floor */}
+        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#030912] via-[#030912]/65 to-transparent" />
+        {/* L5: cinematic vignette — radial darkening focuses eye on Larry at 65% center */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.012]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-          }}
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at 65% 50%, transparent 28%, rgba(3,9,18,0.52) 100%)" }}
         />
+        {/* L6: right-side light lift — subtle luminance bloom near Larry, adds depth */}
+        <div className="pointer-events-none absolute right-[6%] top-[18%] h-[580px] w-[380px] rounded-full bg-white/[0.028] blur-[100px]" />
+        {/* L7: blue atmospheric depth — anchored to lower-left content zone */}
+        <div className="pointer-events-none absolute bottom-[8%] -left-16 h-[460px] w-[460px] rounded-full bg-[#1d4ed8]/[0.11] blur-[100px]" />
 
         {/* Content — bottom-anchored, left-aligned */}
         <div
@@ -149,15 +147,15 @@ export default function HomePage() {
               </div>
 
               <h1
-                className="mb-3 font-display font-bold leading-[1.03] tracking-tight text-white"
-                style={{ fontSize: "clamp(2.6rem, 5.5vw, 3.8rem)", textShadow: "0 2px 24px rgba(0,0,0,0.95)" }}
+                className="mb-4 font-display font-bold leading-[1.05] text-white"
+                style={{ fontSize: "clamp(2.5rem, 5.5vw, 3.75rem)", letterSpacing: "-0.022em", textShadow: "0 2px 28px rgba(0,0,0,0.90)" }}
               >
                 Most Buyers Find Out
                 <br className="hidden sm:block" /> Too Late.{" "}
-                <span className="text-[#60A5FA]">You Won&rsquo;t.</span>
+                <span className="text-[#93C5FD]">You Won&rsquo;t.</span>
               </h1>
 
-              <p className="mb-5 max-w-[500px] text-[16px] leading-[1.6] text-slate-100" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.90)" }}>
+              <p className="mb-6 max-w-[480px] text-[15.5px] leading-[1.65] text-slate-100 sm:font-light" style={{ textShadow: "0 1px 16px rgba(0,0,0,0.85)" }}>
                 <span className="sm:hidden">200+ point ASHI inspection. Same-day report. Real leverage before your contingency closes.</span>
                 <span className="hidden sm:inline">Larry McBain delivers a 200+ point ASHI Certified inspection with a same-day written report — giving you real leverage before your contingency expires.</span>
               </p>
@@ -181,15 +179,15 @@ export default function HomePage() {
                 {/* Secondary CTA */}
                 <Link
                   href="#quote"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.18] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10] sm:hidden"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.22] bg-white/[0.04] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.38] hover:bg-white/[0.09] sm:hidden"
                 >
                   Check Availability <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
                   href="tel:+19072233725"
-                  className="hidden items-center justify-center gap-2 rounded-xl border border-white/[0.18] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10] sm:inline-flex"
+                  className="hidden items-center justify-center gap-2 rounded-xl border border-white/[0.22] bg-white/[0.04] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.38] hover:bg-white/[0.09] sm:inline-flex"
                 >
-                  <Phone className="h-4 w-4 text-[#60A5FA]" /> (907) 223-3725
+                  <Phone className="h-4 w-4 text-[#93C5FD]" /> (907) 223-3725
                 </a>
               </div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/[0.14] bg-[#0B1628]/80 px-4 py-2 backdrop-blur-sm">
@@ -198,17 +196,20 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Trust strip — desktop only (mobile covered by fast-trust band below) */}
-              <div className="hidden sm:flex flex-wrap items-center gap-x-5 gap-y-2.5 border-t border-white/[0.18] pt-5">
+              {/* Proof row — desktop only */}
+              <div className="hidden sm:flex items-center border-t border-white/[0.14] pt-5">
                 {[
-                  { icon: <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />, text: "Same-Day Report — Every Time" },
+                  { icon: <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />, text: "Same-Day Report" },
                   { icon: <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />, text: "5.0 · 47 Reviews" },
-                  { icon: <ShieldCheck className="h-3.5 w-3.5 text-[#60A5FA]" />, text: "ASHI Certified" },
-                  { icon: <Clock className="h-3.5 w-3.5 text-[#60A5FA]" />, text: "1-Hr Response Guarantee" },
-                ].map(({ icon, text }) => (
-                  <div key={text} className="flex items-center gap-1.5">
-                    {icon}
-                    <span className="text-[12px] font-medium text-slate-200">{text}</span>
+                  { icon: <ShieldCheck className="h-3.5 w-3.5 text-[#93C5FD]" />, text: "ASHI Certified" },
+                  { icon: <Clock className="h-3.5 w-3.5 text-[#93C5FD]" />, text: "1-Hr Response" },
+                ].map(({ icon, text }, i) => (
+                  <div key={text} className="flex items-center">
+                    {i > 0 && <span className="mx-4 h-3 w-px shrink-0 bg-white/[0.15]" />}
+                    <div className="flex items-center gap-1.5">
+                      {icon}
+                      <span className="text-[12px] font-medium text-white/75">{text}</span>
+                    </div>
                   </div>
                 ))}
               </div>
