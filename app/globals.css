@@ -63,6 +63,26 @@ body {
   }
 }
 
+/* Mobile hero image framing — shows Larry's face/upper body on portrait */
+.hero-img-pos {
+  object-position: 70% 15%;
+}
+@media (min-width: 640px) {
+  .hero-img-pos {
+    object-position: 50% center;
+  }
+}
+
+/* Responsive hero headline size */
+.hero-headline-size {
+  font-size: clamp(2rem, 8.5vw, 2.4rem);
+}
+@media (min-width: 640px) {
+  .hero-headline-size {
+    font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  }
+}
+
 @layer utilities {
   .btn-primary {
     @apply bg-[#2563EB] text-white font-semibold px-6 py-3 rounded-lg

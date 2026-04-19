@@ -107,79 +107,96 @@ export default function HomePage() {
           alt="Larry McBain arriving at a home inspection — Signature Inspection Service Anchorage"
           fill
           priority
-          className="object-cover hero-drift"
-          style={{ objectPosition: "50% center" }}
-          sizes="100vw"
+          className="object-cover hero-drift hero-img-pos"
+          sizes="(max-width: 640px) 100vw, 100vw"
         />
 
-        {/* Overlay stack */}
-        <div className="absolute inset-0 bg-[#030912]/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030912]/92 via-[#030912]/35 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#030912] via-[#030912]/60 to-transparent" />
-        <div className="pointer-events-none absolute bottom-[5%] -left-16 h-[700px] w-[700px] rounded-full bg-[#1d4ed8]/[0.22] blur-[100px]" />
+        {/* Overlay stack — mobile / desktop split */}
+        <div className="absolute inset-0 bg-[#030912]/15 sm:bg-[#030912]/20" />
+        {/* Mobile: strong bottom-up gradient for text readability */}
+        <div className="absolute inset-0 sm:hidden bg-gradient-to-t from-[#030912] via-[#030912]/60 to-[#030912]/10" />
+        {/* Desktop: left-to-right gradient — text column protection */}
+        <div className="absolute inset-0 hidden sm:block bg-gradient-to-r from-[#030912]/92 via-[#030912]/35 to-transparent" />
+        {/* Desktop: bottom grounding */}
+        <div className="absolute inset-x-0 bottom-0 h-72 hidden sm:block bg-gradient-to-t from-[#030912] via-[#030912]/60 to-transparent" />
+        {/* Mobile glow — smaller, supports CTA area */}
+        <div className="pointer-events-none absolute bottom-[18%] -left-6 h-[300px] w-[300px] rounded-full bg-[#1d4ed8]/[0.20] blur-[70px] sm:hidden" />
+        {/* Desktop glow — cinematic */}
+        <div className="pointer-events-none absolute bottom-[5%] -left-16 h-[700px] w-[700px] rounded-full bg-[#1d4ed8]/[0.22] blur-[100px] hidden sm:block" />
 
         {/* Content — bottom-anchored, left-aligned */}
         <div
-          className="relative z-10 flex w-full flex-col justify-end px-5 pb-10 pt-20 sm:pb-20 sm:pt-28 sm:px-10"
+          className="relative z-10 flex w-full flex-col justify-end px-5 pb-6 pt-24 sm:pb-20 sm:pt-28 sm:px-10"
           style={{ minHeight: "100svh" }}
         >
           <div className="mx-auto w-full max-w-7xl">
             <div className="max-w-[600px]">
+
               {/* Urgency chip */}
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/[0.07] px-4 py-1.5">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/[0.07] px-3.5 py-1.5 sm:px-4">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
-                <span className="text-[11px] font-semibold tracking-wide text-red-300">
+                <span className="text-[10px] sm:text-[11px] font-semibold tracking-wide text-red-300">
                   Scheduling fills 5–7 days out · Check availability now
                 </span>
               </div>
 
               <h1
-                className="mb-4 font-display font-bold leading-[1.05] text-white"
-                style={{ fontSize: "clamp(2.5rem, 5.5vw, 3.75rem)", letterSpacing: "-0.020em", textShadow: "0 2px 20px rgba(0,0,0,0.80)" }}
+                className="hero-headline-size mb-5 sm:mb-4 font-display font-bold leading-[1.05] text-white"
+                style={{ letterSpacing: "-0.020em", textShadow: "0 2px 20px rgba(0,0,0,0.80)" }}
               >
                 Most Buyers Find
                 <br className="hidden sm:block" /> Out Too Late.{" "}
                 <span className="text-[#93C5FD]">You Won&rsquo;t.</span>
               </h1>
 
-              <p className="mb-5 max-w-[500px] text-[16px] leading-[1.65] text-slate-100">
-                <span className="sm:hidden">200+ point ASHI inspection. Same-day report. Real leverage before your contingency closes.</span>
+              <p className="mb-6 sm:mb-5 text-[15px] sm:text-[16px] leading-[1.65] text-slate-200 sm:text-slate-100 sm:max-w-[500px]">
+                <span className="sm:hidden">ASHI Certified · 200+ point inspection · Same-day written report.</span>
                 <span className="hidden sm:inline">Larry McBain delivers a 200+ point ASHI Certified inspection with a same-day written report — giving you real leverage before your contingency expires.</span>
               </p>
 
-              {/* CTAs */}
-              <div className="mb-6 flex flex-col gap-3 sm:flex-row">
+              {/* ── Mobile CTAs — call-dominant ── */}
+              <div className="sm:hidden mb-3 flex flex-col gap-3">
                 <a
                   href="tel:+19072233725"
-                  className="cta-ring inline-flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8] sm:hidden"
+                  className="cta-ring flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#2563EB] px-6 py-4 text-[17px] font-bold text-white shadow-[0_4px_24px_rgba(37,99,235,0.55)] transition-all duration-150 active:scale-[0.98]"
                 >
-                  <Phone className="h-4 w-4" /> Call to Book: (907) 223-3725
+                  <Phone className="h-5 w-5 shrink-0" />
+                  Call Now — (907) 223-3725
                 </a>
+                <p className="text-center text-[11px] leading-snug text-slate-400">
+                  Speak directly to your inspector · Same-day response
+                </p>
                 <Link
                   href="#quote"
-                  className="hidden items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white shadow-[0_0_32px_rgba(37,99,235,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8] sm:inline-flex"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/[0.25] bg-white/[0.07] px-6 py-3.5 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-150 active:scale-[0.98]"
                 >
                   Book My Inspection <ArrowRight className="h-4 w-4" />
                 </Link>
+              </div>
+
+              {/* ── Desktop CTAs ── */}
+              <div className="hidden sm:flex mb-6 gap-3">
                 <Link
                   href="#quote"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.20] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10] sm:hidden"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2563EB] px-7 py-4 text-[15px] font-bold text-white shadow-[0_0_32px_rgba(37,99,235,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1d4ed8]"
                 >
-                  Check Availability <ArrowRight className="h-4 w-4" />
+                  Book My Inspection <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
                   href="tel:+19072233725"
-                  className="hidden items-center justify-center gap-2 rounded-xl border border-white/[0.20] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10] sm:inline-flex"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/[0.20] bg-white/[0.05] px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-200 hover:border-white/[0.35] hover:bg-white/[0.10]"
                 >
                   <Phone className="h-4 w-4 text-[#93C5FD]" /> (907) 223-3725
                 </a>
               </div>
-              <p className="mb-4 text-[12px] text-slate-400">
-                Home inspections from{" "}<span className="font-semibold text-slate-200">$350</span>{" "}·{" "}Same-day written report{" "}·{" "}Fee-back guarantee
+
+              {/* Trust strip */}
+              <p className="mb-4 text-[13px] sm:text-[12px] text-slate-300 sm:text-slate-400">
+                Home inspections from{" "}<span className="font-semibold text-white sm:text-slate-200">$350</span>{" "}·{" "}Same-day written report{" "}·{" "}Fee-back guarantee
               </p>
 
-              {/* Proof row — desktop only */}
-              <div className="hidden sm:flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/[0.12] pt-5">
+              {/* Proof row — 2-col grid on mobile, flex row on desktop */}
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:flex sm:flex-wrap sm:items-center sm:gap-x-5 sm:gap-y-2 sm:border-t sm:border-white/[0.12] sm:pt-5">
                 {[
                   { icon: <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />, text: "Same-Day Report" },
                   { icon: <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />, text: "5.0 · 47 Reviews" },
@@ -192,6 +209,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+
             </div>
           </div>
         </div>
